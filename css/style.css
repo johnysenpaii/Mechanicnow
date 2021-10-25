@@ -18,7 +18,7 @@ Footer starts here
 */
 
 /*
-Admin Dashboard starts here
+user Dashboard starts here
 */
 
 
@@ -138,7 +138,8 @@ nav a:hover{
     }
     header{
         display: grid;
-        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+        grid-template-columns:  auto auto minmax(600px, 3fr) 5em;
+        /* grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr; */
         transition: 300ms ease-in-out;
         background: none;
         box-shadow: none;
@@ -147,6 +148,9 @@ nav a:hover{
     .scrolling-active{
         background-color: var(--clr-neutral-100);
         box-shadow: 0 3px 1rem rgba(0,0,0,.5);
+    }
+    .Uheader{
+        background-color: var(--clr-neutral-100);
     }
     .scrolling-active nav a{
         color: var(--clr-primary-800);
@@ -157,17 +161,23 @@ nav a:hover{
         transition: 5s ease-in-out;
     }
     .scrolling-active .Uheader{
-        background-color: var(--clr-neutral-100);
+        background-color: var(--clr-neutral-100); 
         box-shadow: 0 3px 1rem rgba(0,0,0,.5);
     }
     .logo{
-        grid-column: 2/3;
+        grid-column: 1/2;
+        /* grid-column: 2/3; */
         height: 4em;
         width: 4em;
+        padding-inline: 2em;
+    }
+    .topnav{
+        grid-column: 2/3;
     }
     nav{
         all:  unset;
         grid-column: 3/4;
+        /* grid-column: 3/4; */
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -185,6 +195,10 @@ nav a:hover{
         color: var(--clr-primary-300);
         text-shadow: 2px 2px 8px  black;
         font-weight: 700;
+    }
+    .navstyle a{
+        color: var(--clr-primary-800);
+        text-shadow: none;
     }
     nav a::before{
         content: '';
@@ -260,7 +274,7 @@ section{
 /* desktop */
 @media only screen and (min-width: 992px){
     .banner{
-        background-image: url("/img/banner1.svg") ;
+        background-image: url("/Mechanicnow/img/banner1.svg") ;
         background-size: cover;
         background-position: center;
         background-repeat: no repeat;
@@ -537,7 +551,7 @@ footer ul li{
     }
 }
 
-/* Admin Dashboard starts here */
+/* user Dashboard starts here */
 /* Bottom navs starts here */
 .bottom-nav {
     overflow: hidden;
@@ -613,7 +627,10 @@ button{
     font-size: 18px;
     font-weight: 700;
 }
-@media screen and (min-width: 40em){
+.topnav{
+    display: none;
+}
+@media screen and (min-width: 992px){
     .images{
         flex-direction: row;
     }
@@ -623,6 +640,21 @@ button{
     .images > * + * {
         margin-left: 2em;
     }
-    
-    
+    .bottom-nav{
+        display: none;
+    }
+    .topnav{
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        color: var(--clr-primary-800);
+    }
+    .topnav li a{
+        text-decoration: none;
+        padding-inline: 1em;
+        color: var(--clr-primary-800);
+        font-family: var(--ff-primary);
+        font-weight: 800;
+        font-size: 18px;
+    }
 }
