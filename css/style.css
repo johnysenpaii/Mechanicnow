@@ -55,6 +55,9 @@ header{
     background-color: var(--clr-neutral-100);
     box-shadow: 0 3px 1rem rgba(70, 49, 49, 0.1);
 }
+header p{
+    display: none;
+}
 .logo{
     height: 4em;
     width: 4em;
@@ -175,8 +178,8 @@ nav a:hover{
         font-family: var(--ff-title);
         font-size: 25px;
         color: var(--clr-primary-500);
-        justify-content: center;
-        align-items: center;
+        padding-top: 0.3em;
+        display: block;
     }
     .topnav{
         grid-column: 2/3;
