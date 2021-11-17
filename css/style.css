@@ -248,7 +248,7 @@ section{
 /* tablet */
 @media only screen and (min-width: 600px){
     .banner{
-        background-image: url("/img/banner1.svg") ;
+        background-image: url("/Mechanicnow/img/banner1.svg") ;
         background-size: cover;
         background-position: center;
         background-repeat: no repeat;
