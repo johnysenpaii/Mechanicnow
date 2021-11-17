@@ -380,6 +380,10 @@ section{
 }
 .cardlogo-user h4{
     padding-block: 1em;
+    cursor: pointer;
+}
+.cardlogo-user h4:hover{
+    color: rgba(255, 255, 255, 0.7);
 }
 .mechanic{
     grid-area: card-img2;
