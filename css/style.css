@@ -569,7 +569,7 @@ footer ul li{
 /* Bottom navs starts here */
 .bottom-nav {
     overflow: hidden;
-    background-color: var(--clr-primary-800);
+    background-color: var(--clr-neutral-100);
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -580,7 +580,7 @@ footer ul li{
   .bottom-nav a{
     float: center;
     display: block;
-    color: var(--clr-primary-300);
+    color: var(--clr-primary-800);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -679,4 +679,50 @@ button:hover{
         font-weight: 600;
         font-size: 18 px;
     }
+}
+/* Mechanic Page starts here */
+.search-bar{
+    padding: 8px 10px;
+    width: 20.5em;
+    border-radius: 1em;
+    border: none;
+}
+.searchbar{
+   text-align: center;
+   padding-bottom: 2em;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+.filter{
+    width: 2.1em;
+    height: 2.1em;
+    background-color: #aaaaaa;
+    border-radius: 1em;
+    margin-left: 1em;
+    text-align: right;
+}
+.filter img{
+    width: 70%;
+    padding: 4px;
+}
+
+.mechanic-table{
+    padding-block: 1em;
+    padding-inline: auto;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+}
+table td{
+    text-align: center;
+}
+tr:nth-child(even){
+    background-color: var(--clr-primary-500);
+}
+td, th{
+    padding: 8px;
 }
