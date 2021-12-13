@@ -586,6 +586,28 @@ footer ul li{
     text-decoration: none;
     font-size: 17px;
   }
+  .home-logo{
+      width: 4em;
+      height: 4em;
+      background-color: var(--clr-primary-500);
+      border-radius: 4em;
+      margin-block: 1em;
+  }
+  .home-logo img{
+      width: 100%;
+  }
+  .mech-logo{
+      width: 3.5em;
+      height: 3.5em;
+      border-radius: 3.5em;
+      margin-left: 1em;
+  }
+  .mech-logo img{
+      width: 100%;
+  }
+  .mech-logo p{
+      padding: 0;
+  }
 
   /* Service section starts here */
 .container{
@@ -711,18 +733,99 @@ button:hover{
     padding-block: 1em;
     padding-inline: auto;
 }
-table{
+.mechanic-all{
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
     
 }
-table td{
+.mechanic-all td{
     text-align: center;
 }
-tr:nth-child(even){
+.mechanic-all tr:nth-child(even){
     background-color: var(--clr-primary-500);
 }
-td, th{
+.mechanic-all td, th{
     padding: 8px;
+}
+.mapview a{
+    margin-bottom: 2em;
+    background-color: var(--clr-primary-500);
+    color: var(--clr-primary-300);
+    padding: 1em 3em;
+    text-decoration: none;
+    font-family: var(--ff-primary);
+    font-weight: 800;
+    font-size: 18px;
+}
+.mapview{
+    text-align: center;
+    padding-bottom: 6em;
+    
+}
+/*Mechanic Dashboard starts here*/
+.table-card{
+    border-collapse: separate;
+    border-spacing: 0 1.5em;
+}
+.data-card{
+    background-color: var(--clr-primary-500);
+    border-radius: 0.5em;
+    box-shadow: 0 5px .5rem rgba(0,0,0,0.5);
+    color: white;
+    padding-block: 1em;
+    padding-inline: 1em;
+}
+.accept, .decline{
+    all: unset;
+}
+.accept{
+    background-color: #1AA7EC;
+    padding: 0.3em  0.7em;
+    margin-right: 0.3em;
+    font-weight: 800;
+    border-radius: 0.5em;
+}
+.decline{
+    border: 1px solid white;
+    padding: 0.3em  0.7em;
+    font-weight: 800;
+    border-radius: 0.5em;
+}
+.td-card p{
+    padding: 1em 0em 1em 1em;
+}
+.card-btn{
+    text-align: right;
+}
+/* user profile starts here */
+.profile-bg h3, h2{
+    padding-block: 1em;
+}
+.editbtn{
+    margin-block: 3em;
+    color: white;
+    background-color: var(--clr-primary-500);
+}
+.avatar-img img{
+    width: 100%;
+    display: block;
+    border-radius: 5em;
+}
+.avatar-img{
+    width: 5em;
+    height: 5em;
+}
+.info-sec{
+    display: flex;
+    flex-direction: row;
+}
+.info-sec h3{
+    padding-right: 2em;
+}
+/* map pages starts here */
+#googleMap{
+    width: 80%;
+    height: 400px;
+
 }
