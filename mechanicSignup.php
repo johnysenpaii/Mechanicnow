@@ -13,40 +13,58 @@ if(isset($_POST['register']))
     $Username=strtoupper($_POST['Username']);
     $Password=strtoupper($_POST['Password']);
    
-
-    $sql="SELECT * FROM mechanic WHERE mechLastname=:mechLastname";
-    $query=$dbh->prepare($sql);
-    $query->bindParam(':mechLastname',$mechLastname,PDO::PARAM_STR);
-    $query->execute();
-    $results=$query->fetch(PDO::FETCH_ASSOC);
-    if($query->rowCount()>0)
-    {
-      echo "<script type='text/javascript'>document.location='login.php';</script>";
-    }else{
-
-
-    $sql="INSERT INTO mechanic(mechFirstname, mechLastname, mechAddress, mechEmail, mechCnumber, mechValidID, Specialization, Username, Password)VALUES(:mechFirstname, :mechLastname, :mechAddress, :mechEmail, :mechCnumber, :mechValidID, :Specialization, :Username, :Password)";
-    $query=$dbh->prepare($sql);
-    $query->bindParam(':mechFirstname',$mechFirstname,PDO::PARAM_STR);
-    $query->bindParam(':mechLastname',$mechLastname,PDO::PARAM_STR);
-    $query->bindParam(':mechAddress',$mechAddress,PDO::PARAM_STR);
-    $query->bindParam(':mechEmail',$mechEmail,PDO::PARAM_STR);
-    $query->bindParam(':mechCnumber',$mechCnumber,PDO::PARAM_STR);
-    $query->bindParam(':mechValidID',$mechValidID,PDO::PARAM_STR);
-    $query->bindParam(':Specialization',$Specialization,PDO::PARAM_STR);
-    $query->bindParam(':Username',$Username,PDO::PARAM_STR);
-    $query->bindParam(':Password',$Password,PDO::PARAM_STR);
-    $query->execute();
-
-    echo "<script type='text/javascript'>document.location='login.html';</script>";
+      //check password
+  if ($_POST['Password']!= $_POST['passwordcheck'])
+  {
+    echo '<script>alert("Oops! Password did not match! Please try again.")</script>';
+    echo "<script type='text/javascript'>document.location='mechanicSignup.php';</script>";
   }
+  else{
+    //hashed password
+  $hashedPwd = password_hash($Password, PASSWORD_DEFAULT);
   //check email
-  $query = $pdo->prepare("SELECT * FROM mechanic WHERE custUsername = ?");
+  $sql2="SELECT * FROM mechanic WHERE Username = ?";
+  $query = $dbh->prepare($sql2);
   $query->execute([$Username]);
   $result = $query->rowCount();
   if($result > 0){
-      $error="<span class='text-danger'>Username hac already Exist!!</span>";
+      // $error="<span class='text-danger'>Username has already Exist!!</span>";
+      echo '<script>alert("Oops! Username Already Exist!")</script>';
+      echo "<script type='text/javascript'>document.location='mechanicSignup.php';</script>";
   }
+  else{
+    $sql="SELECT * FROM mechanic WHERE mechLastname=:mechLastname";
+  $query=$dbh->prepare($sql);
+  $query->bindParam(':mechLastname',$mechLastname,PDO::PARAM_STR);
+  $query->execute();
+  $results=$query->fetch(PDO::FETCH_ASSOC);
+  if($query->rowCount()>0)
+  {
+    echo "<script type='text/javascript'>document.location='login.php';</script>";
+  }else{
+
+
+  $sql="INSERT INTO mechanic(mechFirstname, mechLastname, mechAddress, mechEmail, mechCnumber, mechValidID, Specialization, Username, Password)VALUES(:mechFirstname, :mechLastname, :mechAddress, :mechEmail, :mechCnumber, :mechValidID, :Specialization, :Username, :hashedPwd)";
+  $query=$dbh->prepare($sql);
+  $query->bindParam(':mechFirstname',$mechFirstname,PDO::PARAM_STR);
+  $query->bindParam(':mechLastname',$mechLastname,PDO::PARAM_STR);
+  $query->bindParam(':mechAddress',$mechAddress,PDO::PARAM_STR);
+  $query->bindParam(':mechEmail',$mechEmail,PDO::PARAM_STR);
+  $query->bindParam(':mechCnumber',$mechCnumber,PDO::PARAM_STR);
+  $query->bindParam(':mechValidID',$mechValidID,PDO::PARAM_STR);
+  $query->bindParam(':Specialization',$Specialization,PDO::PARAM_STR);
+  $query->bindParam(':Username',$Username,PDO::PARAM_STR);
+  $query->bindParam(':hashedPwd',$hashedPwd,PDO::PARAM_STR);
+  $query->execute();
+
+  echo "<script type='text/javascript'>document.location='login.html';</script>";
+}
+  }
+  }
+
+  
+  
+  
 }
 ?>
 <!DOCTYPE html>
@@ -70,15 +88,30 @@ if(isset($_POST['register']))
                         <h3>Personal Information</h3>
                         <input type="text" name="mechFirstname" class="textin" placeholder="First Name" required>
                         <input type="text" name="mechLastname" class="textin" placeholder="Last Name" required>
-                        <input type="text" name="mechAddress" class="textin" placeholder="Address" required>
-                        <input type="email" name="mechEmail" class="textin" placeholder="email" required>
-                        <input type="number" name="mechCnumber" class="textin" placeholder="number" required>
-                        <input type="text" name="mechValidID" class="textin" placeholder="validation" required>
-                        <input type="text" name="Specialization" class="textin" placeholder="Specialization" required>
+                        <input type="email" name="mechEmail" class="textin" placeholder="Email Address" required>
+                        <input type="tel" name="mechCnumber" class="textin" pattern="((^(\+)(\d){12}$)|(^\d{11}$))" placeholder="Phone number" required>
+                        <h4 style="padding-bottom: 1em;">Address</h4>
+                        <div class="addresspanel" style="padding-bottom: 1em;">
+                            <input type="text" id="Province" name="mechAddress" class="textin" placeholder="Province" style="width:90%;" required>  
+                            <input type="text" id="City" name="mechAddress" class="textin" placeholder="City" style="width:90%;" required>
+                            <input type="text" id="Barangay" name="mechAddress" class="textin" placeholder="Barangay" style="width:90%;" required>
+                        </div>
+                        <select type="text" name="Specialization" class="textin" placeholder="Select Specialization..." required>
+                            <div style="color: gray;"><option style="color: gray;" value="" disabled selected hidden>Select Specialization...</option></div>
+                            <option value="Diesel Mechanic">Diesel Mechanic</option>
+                            <option value="General Automotive Mechanic">General Automotive Mechanic</option>
+                            <option value="Break and Transmission Technician">Break and Transmission Technician</option>    
+                            <option value="Auto Body Mechanic">Auto Body Mechanic</option>
+                            <option value="Service Technicians">Service Technicians</option>
+                            <option value="Auto Glass Mechanic">Auto Glass Mechanic</option>   
+                            <option value="Heavy Equipment Mechanic">Heavy Equipment Mechanic</option>
+                            <option value="Small Engine Mechanic">Small Engine Mechanic</option>
+                            <option value="Tire Mechanic">Tire Mechanic</option>   
+                        </select>
                         <h3>Account Information</h3>
                         <input type="text" name="Username" class="textin" placeholder="Username" required>
                         <input type="password" name="Password" class="textin" placeholder="Password" required>
-                        <input type="password" class="textin" placeholder="Confirm Password" required>
+                        <input type="password" name ="passwordcheck" class="textin" placeholder="Confirm Password" required>
                         <button class="register" name="register">Create Account</button>
                 </div>
             </form>

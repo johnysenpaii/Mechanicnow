@@ -1,3 +1,9 @@
+<?php
+session_start();
+include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,26 +17,9 @@
     <title>Mechanic Now</title>
 </head>
 <body>
-    <header class="Uheader">
-        <img src="img/mechanicnowlogo.svg" class="logo" alt="">
-        <ul class="topnav">
-            <li><a href="">Home</a></li>
-            <li><a href="">Vehicle</a></li>
-            <li><a href="">Mechanic</a></li>
-        </ul>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <nav class="navstyle">
-            <ul>
-                <li><a href="">Welcome Name</a></li>
-                <li><a href="">Notifications</a></li>
-                <li><a href="">Settings</a></li>
-                <li><a href="userProfile.html">Profile</a></li>
-            </ul>
-        </nav>
-        <label for="nav-toggle" class="nav-toggle-label">
-            <span></span>
-        </label>
-    </header>
+    <?php
+    include('C:\xampp\htdocs\DEVGRU\Mechanicnow\Uheader.php');
+    ?>
     
     <div class="master-container">
         
@@ -74,15 +63,20 @@
             </div>
         </section>
         
-        <div class="bottom-nav">
-            <a href="">Vehicle</a>
+        <!-- <div class="bottom-nav">
+            <div class="vehicle-logo">
+                <a href="userDashboard.html"><img src="img/steering-wheel2.png" alt=""></a>
+            </div>
             <div class="home-logo">
                 <a href="userDashboard.html"><img src="img/house-black-silhouette-without-door.png" alt=""></a>
             </div>
             <div class="mech-logo">
                 <a href="mechanicPage.html"><img src="img/mechtool.png" alt=""></a>
             </div>
-        </div>
+        </div> -->
+        <?php
+        include('C:\xampp\htdocs\DEVGRU\Mechanicnow\bottom-nav.php');
+        ?>
     </div>
 
     <script src="js/main.js"></script>

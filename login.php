@@ -15,9 +15,12 @@ if(isset($_POST['Login']))
     if($query->rowCount()>0)
     {
       session_regenerate_id();
+      $_SESSION['custID']=$results['custID'];
+      $_SESSION['custFirstname']=$results['custFirstname'];
+      $_SESSION['custLastname']=$results['custLastname'];
       $_SESSION['Username']=$results['Username'];
       $_SESSION['Password']=$results['Password'];
-      echo "<script type='text/javascript'>document.location='userDashboard.html';</script>";
+      echo "<script type='text/javascript'>document.location='userDashboard.php';</script>";
     }
 
     $Username=$_POST['Username'];
@@ -72,19 +75,19 @@ if(isset($_POST['Login']))
               <span class="close">&times;</span>
               <h3>Choose how you want to use Mechanic now</h3>
                     <div class="cardlogo-user">
-                        <a href ="userSignup.html">
+                        <a href ="userSignup.php">
                             <img src="img/steering-wheel.png" alt="">
                         </a>
                         <h4 class="logo-label">VEHICLE OWNER</h4>
                     </div>
                     <div class="cardlogo-user mechanic">
-                        <a href ="mechanicSignup.html">
+                        <a href ="mechanicSignup.php">
                             <img src="img/mechanic-tools.png" alt="">
                         </a>
                         <h4 class="logo-label">MECHANIC</h4>
                     </div>
                     <div class="prompt-login">
-                        <p>Do you have an account? <span><a href="login.html">login</a></span></p>
+                        <p>Do you have an account? <span><a href="login.php">login</a></span></p>
 
                     </div>
             </div>
@@ -114,7 +117,7 @@ if(isset($_POST['Login']))
             <p>© 2021 Mechanic Now.</p>
         </div>
         <div class="adminLog">
-            <a href="adminLogin.html">sign-in as admin</a>
+            <a href="adminLogin.php">sign-in as admin</a>
         </div>
     </footer>
     <script src="js/main.js"></script>
