@@ -135,21 +135,15 @@
                 <br>
                 <br>
                 <div class="mapview">
-                    <a href="userMap.html">view map</a>
+                    <a href="userMap.php">view map</a>
                 </div>
                 
             </div>
         </section>
         
-        <div class="bottom-nav">
-            <a href="">Vehicle</a>
-            <div class="home-logo">
-                <a href="mechanicDashboard.html"><img src="img/house-black-silhouette-without-door.png" alt=""></a>
-            </div>
-            <div class="mech-logo">
-                <a href="mechanicPage.html"><img src="img/mechtool.png" alt=""></a>
-            </div>
-        </div>
+        <?php
+        include('C:\xampp\htdocs\DEVGRU\Mechanicnow\bottom-nav.php');
+        ?>
     </div>
     <script src="js/main.js"></script>
 </body>

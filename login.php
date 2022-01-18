@@ -1,3 +1,48 @@
+<?php
+session_start();
+include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+if(isset($_POST['Login']))
+{
+    $Username=$_POST['Username'];
+    $Password=$_POST['Password'];
+
+    $sql="SELECT * FROM customer WHERE Username=:Username AND Password=:Password";
+    $query=$dbh->prepare($sql);
+    $query->bindParam(':Username',$Username,PDO::PARAM_STR);
+    $query->bindParam(':Password',$Password,PDO::PARAM_STR);
+    $query->execute();
+    $results=$query->fetch(PDO::FETCH_ASSOC);
+    if($query->rowCount()>0)
+    {
+      session_regenerate_id();
+      $_SESSION['custID']=$results['custID'];
+      $_SESSION['custFirstname']=$results['custFirstname'];
+      $_SESSION['custLastname']=$results['custLastname'];
+      $_SESSION['Username']=$results['Username'];
+      $_SESSION['Password']=$results['Password'];
+      echo "<script type='text/javascript'>document.location='userDashboard.php';</script>";
+    }
+
+    $Username=$_POST['Username'];
+    $Password=$_POST['Password'];
+
+    $sql="SELECT * FROM mechanic WHERE Password=:Username AND Password=:Password";
+    $query=$dbh->prepare($sql);
+    $query->bindParam(':Username',$Username,PDO::PARAM_STR);
+    $query->bindParam(':Password',$Password,PDO::PARAM_STR);
+    $query->execute();
+    $results=$query->fetch(PDO::FETCH_ASSOC);
+    if($query->rowCount()>0)
+    {
+      session_regenerate_id();
+      $_SESSION['Username']=$results['Username'];
+      $_SESSION['Password']=$results['Password'];
+      echo "<script type='text/javascript'>document.location='mechanicDashboard.html';</script>";
+    }
+
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +57,14 @@
 </head>
 </head>
 <body>
-    <form action="">
+    <form method="POST">
         <div class="side-content login-content">
                 <div class="image-login"><img src="img/mnrevisedlogo864-nooutline.png" alt=""></div>
                 <h1>Welcome!</h1>
-                <input type="text" class="textin" placeholder="Username" required>
-                <input type="password" class="textin" placeholder="Password" required>
+                <input type="text" class="textin" name="Username" placeholder="Username" required>
+                <input type="password" class="textin" name="Password" placeholder="Password" required>
                 <p><a href="">Forgot Password?</a></p>
-                <button class="createaccount">Login</button>
+                <button class="createaccount" name="Login">Login</button>
                 <p>Don't Have an Account yet? <span><div id="myBtn"><a>Sign up</a></div></span></p>
         </div>
     </form>
@@ -30,19 +75,20 @@
               <span class="close">&times;</span>
               <h3>Choose how you want to use Mechanic now</h3>
                     <div class="cardlogo-user">
-                        <a href ="userSignup.html">
+                        <a href ="userSignup.php">
                             <img src="img/steering-wheel.png" alt="">
                         </a>
                         <h4 class="logo-label">VEHICLE OWNER</h4>
                     </div>
                     <div class="cardlogo-user mechanic">
-                        <a href ="mechanicSignup.html">
+                        <a href ="mechanicSignup.php">
                             <img src="img/mechanic-tools.png" alt="">
                         </a>
                         <h4 class="logo-label">MECHANIC</h4>
                     </div>
                     <div class="prompt-login">
-                        <p>Do you have an account? <span><a href="login.html">login</a></span></p>
+                        <p>Do you have an account? <span><a href="login.php">login</a></span></p>
+
                     </div>
             </div>
         </div>
@@ -69,6 +115,9 @@
         </div>
         <div class="credits">
             <p>© 2021 Mechanic Now.</p>
+        </div>
+        <div class="adminLog">
+            <a href="adminLogin.php">sign-in as admin</a>
         </div>
     </footer>
     <script src="js/main.js"></script>
