@@ -33,9 +33,9 @@ if(isset($_POST['register']))
       echo "<script type='text/javascript'>document.location='mechanicSignup.php';</script>";
   }
   else{
-    $sql="SELECT * FROM mechanic WHERE mechLastname=:mechLastname";
+    $sql="SELECT * FROM mechanic WHERE Username=:Username";
   $query=$dbh->prepare($sql);
-  $query->bindParam(':mechLastname',$mechLastname,PDO::PARAM_STR);
+  $query->bindParam(':Username',$Username,PDO::PARAM_STR);
   $query->execute();
   $results=$query->fetch(PDO::FETCH_ASSOC);
   if($query->rowCount()>0)
@@ -56,8 +56,8 @@ if(isset($_POST['register']))
   $query->bindParam(':Username',$Username,PDO::PARAM_STR);
   $query->bindParam(':hashedPwd',$hashedPwd,PDO::PARAM_STR);
   $query->execute();
-
-  echo "<script type='text/javascript'>document.location='login.html';</script>";
+  session_regenerate_id();
+  echo "<script type='text/javascript'>document.location='login.php';</script>";
 }
   }
   }
@@ -108,6 +108,7 @@ if(isset($_POST['register']))
                             <option value="Small Engine Mechanic">Small Engine Mechanic</option>
                             <option value="Tire Mechanic">Tire Mechanic</option>   
                         </select>
+                        <input type="text" name="mechValidID" class="textin" placeholder="Attach Valid ID" required>
                         <h3>Account Information</h3>
                         <input type="text" name="Username" class="textin" placeholder="Username" required>
                         <input type="password" name="Password" class="textin" placeholder="Password" required>

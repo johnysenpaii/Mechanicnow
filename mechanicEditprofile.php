@@ -4,13 +4,13 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
 if(isset($_POST['edit']))
 {
     $id=$_POST['id'];
-    // $profileImg=addslashes(file_get_contents($_FILES["profileImg"]["tmp_name"]));
-    $custFirstname=$_POST['custFirstname'];
-    $custLastname=$_POST['custLastname'];
-    $custEmail=$_POST['custEmail'];
-    $custCnumber=$_POST['custCnumber'];
-    $custAddress=$_POST['custAddress'];
-    $vehicleType=$_POST['vehicleType'];
+    $mechFirstname=$_POST['mechFirstname'];
+    $mechLastname=$_POST['mechLastname'];
+    $mechEmail=$_POST['mechEmail'];
+    $mechCnumber=$_POST['mechCnumber'];
+    $mechAddress=$_POST['mechAddress'];
+    $Specialization=$_POST['Specialization'];
+    $mechValidID=$_POST['mechValidID'];
     $Username=$_POST['Username'];
     $Password=$_POST['Password'];
 
@@ -47,16 +47,16 @@ if(isset($_POST['edit']))
 
     $regeditid=intval($_GET['regeditid']);
 
-  $sql="UPDATE customer set custID=:id,custFirstname=:custFirstname,custLastname=:custLastname,custEmail=:custEmail,custCnumber=:custCnumber,custAddress=:custAddress,vehicleType=:vehicleType,Username=:Username,Password=:Password WHERE custID=:regeditid";
+  $sql="UPDATE mechanic set mechID=:id,mechFirstname=:mechFirstname,mechLastname=:mechLastname,mechEmail=:mechEmail,mechCnumber=:mechCnumber,mechAddress=:mechAddress,Specialization=:Specialization,mechValidID=:mechValidID,Username=:Username,Password=:Password WHERE mechID=:regeditid";
   $query=$dbh->prepare($sql);
   $query->bindParam(':id',$id,PDO::PARAM_STR);
-  // $query->bindParam(':profileImg',$profileImg,PDO::PARAM_STR);
-  $query->bindParam(':custFirstname',$custFirstname,PDO::PARAM_STR);
-  $query->bindParam(':custLastname',$custLastname,PDO::PARAM_STR);
-  $query->bindParam(':custEmail',$custEmail,PDO::PARAM_STR);
-  $query->bindParam(':custCnumber',$custCnumber,PDO::PARAM_STR);
-  $query->bindParam(':custAddress',$custAddress,PDO::PARAM_STR);
-  $query->bindParam(':vehicleType',$vehicleType,PDO::PARAM_STR);
+  $query->bindParam(':mechFirstname',$mechFirstname,PDO::PARAM_STR);
+  $query->bindParam(':mechLastname',$mechLastname,PDO::PARAM_STR);
+  $query->bindParam(':mechEmail',$mechEmail,PDO::PARAM_STR);
+  $query->bindParam(':mechCnumber',$mechCnumber,PDO::PARAM_STR);
+  $query->bindParam(':mechAddress',$mechAddress,PDO::PARAM_STR);
+  $query->bindParam(':Specialization',$Specialization,PDO::PARAM_STR);
+  $query->bindParam(':mechValidID',$mechValidID,PDO::PARAM_STR);
   $query->bindParam(':Username',$Username,PDO::PARAM_STR);
   $query->bindParam(':Password',$Password,PDO::PARAM_STR);
   $query->bindParam(':regeditid',$regeditid,PDO::PARAM_STR);
@@ -94,8 +94,8 @@ if(isset($_POST['edit']))
         <section>
             <form method="POST">
             <?php //select transaction
-              $regeditid=$_SESSION["custID"];
-              $sql="SELECT * from customer WHERE custID=:regeditid";
+              $regeditid=$_SESSION["mechID"];
+              $sql="SELECT * from mechanic WHERE mechID=:regeditid";
               $query=$dbh->prepare($sql);
               $query->bindParam(':regeditid',$regeditid,PDO::PARAM_STR);
               $query->execute();
@@ -110,23 +110,22 @@ if(isset($_POST['edit']))
                 <div class="profile-bg">
                     <h2>Personal Information</h2>
                     <div class="avatar-img"><img src="img/avatar.png" alt=""></div><br>
-                    <input type="file" name="profileImg" id="logo"><br><br>
-                    <input type="hidden" name="id" value="<?php echo htmlentities($result->custID);?>"
+                    <input type="hidden" name="id" value="<?php echo htmlentities($result->mechID);?>"
                             required="required" class="form-control">
-                    <input type="text" name="custFirstname"  value="<?php echo htmlentities($result->custFirstname);?>" class="textin" placeholder="First Name" required>
-                    <input type="text" name="custLastname" value="<?php echo htmlentities($result->custLastname);?>" class="textin" placeholder="Last Name" required>
-                    <input type="email" name="custEmail" value="<?php echo htmlentities($result->custEmail);?>" class="textin" placeholder="Email Address" required>
-                    <input type="tel" name="custCnumber" value="<?php echo htmlentities($result->custCnumber);?>" class="textin" pattern="((^(\+)(\d){12}$)|(^\d{11}$))" placeholder="Phone Number" required>
+                    <input type="text" name="mechFirstname"  value="<?php echo htmlentities($result->mechFirstname);?>" class="textin imgspace" placeholder="First Name" required>
+                    <input type="text" name="mechLastname" value="<?php echo htmlentities($result->mechLastname);?>" class="textin" placeholder="Last Name" required>
+                    <input type="email" name="mechEmail" value="<?php echo htmlentities($result->mechEmail);?>" class="textin" placeholder="Email Address" required>
+                    <input type="tel" name="mechCnumber" value="<?php echo htmlentities($result->mechCnumber);?>" class="textin" pattern="((^(\+)(\d){12}$)|(^\d{11}$))" placeholder="Phone Number" required>
                     <h4 style="padding-bottom: 1em;">Address</h4>
                         <div class="addresspanel" style="padding-bottom: 1em;">
-                            <input type="text" id="Province" name="custAddress" value="<?php echo htmlentities($result->custAddress);?>" class="textin" placeholder="Province" style="width:90%;" required>  
-                            <input type="text" id="City" name="custAddress" value="<?php echo htmlentities($result->custAddress);?>" class="textin" placeholder="City" style="width:90%;" required>
-                            <input type="text" id="Barangay" name="custAddress" value="<?php echo htmlentities($result->custAddress);?>" class="textin" placeholder="Barangay" style="width:90%;" required>
+                            <input type="text" id="Province" name="mechAddress" value="<?php echo htmlentities($result->mechAddress);?>" class="textin" placeholder="Province" style="width:90%;" required>  
+                            <input type="text" id="City" name="mechAddress" value="<?php echo htmlentities($result->mechAddress);?>" class="textin" placeholder="City" style="width:90%;" required>
+                            <input type="text" id="Barangay" name="mechAddress" value="<?php echo htmlentities($result->mechAddress);?>" class="textin" placeholder="Barangay" style="width:90%;" required>
                         </div>
-                        <select type="text" name="vehicleType" class="textin" placeholder="Vehicle Type" required>
+                        <select type="text" name="Specialization" class="textin" placeholder="Specialization" required>
                        
                         <?php
-                            $sql = "SELECT * from customer";
+                            $sql = "SELECT * from mechanic";
                             $query = $dbh -> prepare($sql);
                             $query -> execute();
                             $results1=$query->fetchAll(PDO::FETCH_OBJ);
@@ -137,10 +136,10 @@ if(isset($_POST['edit']))
                                 {
                                     ?>
                                    
-                                    <option value="<?php echo htmlentities($result1->vehicleType);?>">
+                                    <option value="<?php echo htmlentities($result1->Specialization);?>">
                                     
                                     <?php
-                                    echo htmlentities($result1->vehicleType);
+                                    echo htmlentities($result1->Specialization);
                                     ?>
                                     </option>
                                     <?php
@@ -152,6 +151,7 @@ if(isset($_POST['edit']))
                             <option value="Four Wheels">Four Wheels</option>
 
                         </select>
+                        <input type="text" class="textin" name="mechValidID" value="<?php echo htmlentities($result->mechValidID);?>"required="required" class="form-control">
                     </br>
                     </br>
                     <h2>Account Information</h2>
@@ -165,9 +165,7 @@ if(isset($_POST['edit']))
             </form>
         </section>
         
-        <?php
-        include('C:\xampp\htdocs\DEVGRU\Mechanicnow\bottom-nav.php');
-        ?>
+        <?php include('Mbootom-nav.php');?>
     </div>
 
     <script src="js/main.js"></script>

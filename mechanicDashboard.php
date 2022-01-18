@@ -11,26 +11,7 @@
     <title>Mechanic Now</title>
 </head>
 <body>
-    <header class="Uheader">
-        <img src="img/mechanicnowlogo.svg" class="logo" alt="">
-        <ul class="topnav">
-            <li><a href="mechanicDashboard.html">Home</a></li>
-            <li><a href="">Vehicle</a></li>
-            <li><a href="">Mechanic</a></li>
-        </ul>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <nav class="navstyle">
-            <ul>
-                <li><a href="">Welcome Name</a></li>
-                <li><a href="">Notifications</a></li>
-                <li><a href="">Settings</a></li>
-                <li><a href="mechanicProfile.html">Profile</a></li>
-            </ul>
-        </nav>
-        <label for="nav-toggle" class="nav-toggle-label">
-            <span></span>
-        </label>
-    </header>
+    <?php include('Mheader.php');?>
     
     <div class="master-container">
         <section>
@@ -126,14 +107,7 @@
                 </div>
             </div>
         </section>
-        
-        <div class="bottom-nav">
-            <a href="">Vehicle</a>
-            <div class="home-logo">
-                <a href="mechanicDashboard.html"><img src="img/house-black-silhouette-without-door.png" alt=""></a>
-            </div>
-            <a href="mechanicPage.html">Mechanic</a>
-         </div>
+        <?php include('Mbootom-nav.php');?>
     </div>
 
     <script src="js/main.js"></script>
