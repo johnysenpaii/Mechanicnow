@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
 if(isset($_POST['createaccount']))
 {
     $username=$_POST['adminUserN'];
@@ -17,7 +17,7 @@ if(isset($_POST['createaccount']))
       session_regenerate_id();
       $_SESSION['adminUserN']=$results['adminUserN'];
       $_SESSION['adminPass']=$results['adminPass'];
-      echo "<script type='text/javascript'>document.location='adminDashboard.html';</script>";
+      echo "<script type='text/javascript'>document.location='./concept-master/adminDashboard.html';</script>";
     }
 
 }
