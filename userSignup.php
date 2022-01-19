@@ -20,7 +20,9 @@ if(isset($_POST['register']))
   }
   else{
     //hashed password
-  $hashedPwd = password_hash($Password, PASSWORD_DEFAULT);
+    $input = $_POST['Password'];
+    $hashedPwd = password_hash($Password, PASSWORD_DEFAULT);
+
 
   //check email
   $sql2="SELECT * FROM customer WHERE Username = ?";
@@ -56,6 +58,8 @@ if(isset($_POST['register']))
   $query->bindParam(':hashedPwd',$hashedPwd,PDO::PARAM_STR);
   $query->execute();
 
+  session_regenerate_id();
+  $_SESSION[$input];
   echo "<script type='text/javascript'>document.location='login.php';</script>";
 }
   }

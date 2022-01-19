@@ -3,7 +3,6 @@ session_start();
 include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,16 +16,15 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
     <title>Mechanic Now</title>
 </head>
 <body>
-    <?php
-    include('C:\xampp\htdocs\DEVGRU\Mechanicnow\Uheader.php');
+<?php
+    include('Mheader.php');
     ?>
     
     <div class="master-container">
         <section>
-            <form method="POST">
-        <?php //select transaction
-              $regeditid=$_SESSION["custID"];
-              $sql="SELECT * from customer WHERE custID=:regeditid";
+          <form method="POST">  <?php //select transaction
+              $regeditid=$_SESSION["mechID"];
+              $sql="SELECT * from mechanic WHERE mechID=:regeditid";
               $query=$dbh->prepare($sql);
               $query->bindParam(':regeditid',$regeditid,PDO::PARAM_STR);
               $query->execute();
@@ -37,27 +35,27 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
               foreach ($results as $result) 
               {
             ?>
+    
+    <div class="master-container">
+        <section>
             <div class="container">
                 <div class="profile-bg">
                     <h2>Personal Information</h2>
                     <div class="avatar-img"><img src="img/avatar.png" alt=""></div><br>
-                    <input type="hidden" name="custID" value="<?php echo htmlentities($result->custID);?>"required="required" class="form-control">
-                    <input type="text" name="custFirstname"  value="<?php echo htmlentities($result->custFirstname);?>" class="textin" placeholder="First Name" required>
-                    <input type="text" name="custLastname" value="<?php echo htmlentities($result->custLastname);?>" class="textin" placeholder="Last Name" required>
-                    <input type="email" name="custEmail" value="<?php echo htmlentities($result->custEmail);?>" class="textin" placeholder="Email Address" required>
-                    <input type="tel" name="custCnumber" value="<?php echo htmlentities($result->custCnumber);?>" class="textin" pattern="((^(\+)(\d){12}$)|(^\d{11}$))" placeholder="Phone Number" required>
+                    <input type="hidden" name="mechID" value="<?php echo htmlentities($result->mechID);?>"required="required" class="form-control">
+                    <input type="text" class="textin imgspace" name="mechFirstname" value="<?php echo htmlentities($result->mechFirstname);?>"required="required" class="form-control">
+                    <input type="text" class="textin" name="mechLastname" value="<?php echo htmlentities($result->mechLastname);?>"required="required" class="form-control">
+                    <input type="text" class="textin" name="mechEmail" value="<?php echo htmlentities($result->mechEmail);?>"required="required" class="form-control">
+                    <input type="text" class="textin" name="mechCnumber" value="<?php echo htmlentities($result->mechCnumber);?>"required="required" class="form-control">
                     <h4 style="padding-bottom: 1em;">Address</h4>
                         <div class="addresspanel" style="padding-bottom: 1em;">
-                            <input type="text" id="Province" name="custAddress" value="<?php echo htmlentities($result->custAddress);?>" class="textin" placeholder="Province" style="width:90%;" required>  
-                            <input type="text" id="City" name="custAddress" value="<?php echo htmlentities($result->custAddress);?>"  class="textin" placeholder="City" style="width:90%;" required>
-                            <input type="text" id="Barangay" name="custAddress" value="<?php echo htmlentities($result->custAddress);?>" class="textin" placeholder="Barangay" style="width:90%;" required>
+                            <input type="text" id="Province" name="mechAddress" value="<?php echo htmlentities($result->mechAddress);?>" class="textin" placeholder="Province" style="width:90%;" required>  
+                            <input type="text" id="City" name="mechAddress" value="<?php echo htmlentities($result->mechAddress);?>"  class="textin" placeholder="City" style="width:90%;" required>
+                            <input type="text" id="Barangay" name="mechAddress" value="<?php echo htmlentities($result->mechAddress);?>" class="textin" placeholder="Barangay" style="width:90%;" required>
                         </div>
-                        <select type="text" name="vehicleType"  class="textin" placeholder="Vehicle Type" required>
-
-                              
-
-                              <?php
-                            $sql = "SELECT * from customer";
+                    <select type="text" name="Specialization"  class="textin" placeholder="Specialization" required>
+                    <?php
+                            $sql = "SELECT * from mechanic";
                             $query = $dbh -> prepare($sql);
                             $query -> execute();
                             $results1=$query->fetchAll(PDO::FETCH_OBJ);
@@ -67,37 +65,32 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
                                 foreach($results as $result1)
                                 {
                                     ?>
-                                    <option value="<?php echo htmlentities($result1->vehicleType);?>">
+                                    <option value="<?php echo htmlentities($result1->Specialization);?>">
                                     <?php
-                                    echo htmlentities($result1->vehicleType);
+                                    echo htmlentities($result1->Specialization);
                                     ?>
                                     </option>
                                     <?php
                                 }
                             }
                             ?>  
-
-
-                           
-
-
                         </select>
+                    <input type="text" class="textin" name="mechValidID" value="<?php echo htmlentities($result->mechValidID);?>"required="required" class="form-control">
                     </br>
                     </br>
                     <h2>Account Information</h2>
                     <input type="text" name="Username" value="<?php echo htmlentities($result->Username);?>" class="textin" placeholder="Username" required>
                     <input type="password" name="Password" value="<?php echo htmlentities($result->custPassword);?>" class="textin" placeholder="Password" required>
                     <!-- <button class="editbtn">Edit Information</button> -->
-                    <a href="userEditprofile.php?regeditid=<?php echo htmlentities($result->custID)?>">Edit Information</a>
+                    <a href="mechanicEditprofile.php?regeditid=<?php echo htmlentities($result->mechID)?>">Edit Information</a>
+
                 </div>
             </div>
             <?php }}?>
-              </form>
+        </form>
         </section>
         
-        <?php
-        include('C:\xampp\htdocs\DEVGRU\Mechanicnow\bottom-nav.php');
-        ?>
+        <?php include('Mbootom-nav.php');?>
     </div>
 
     <script src="js/main.js"></script>

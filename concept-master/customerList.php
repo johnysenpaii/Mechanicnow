@@ -1,6 +1,11 @@
+<?php
+session_start();
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
+
+?>
 <!doctype html>
 <html lang="en">
- 
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -29,14 +34,18 @@
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
                 <a href="index.html"><img src="..\img\mechanicnowlogo.svg" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                        
+
                         <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span
+                                    class="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
                                     <div class="notification-title"> Notification</div>
@@ -44,32 +53,48 @@
                                         <div class="list-group">
                                             <a href="#" class="list-group-item list-group-item-action active">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
+                                                    <div class="notification-list-user-img"><img
+                                                            src="assets/images/avatar-2.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Jeremy
+                                                            Rakestraw</span>accepted your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">John Abraham </span>is now following you
+                                                    <div class="notification-list-user-img"><img
+                                                            src="assets/images/avatar-3.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">John Abraham </span>is
+                                                        now following you
                                                         <div class="notification-date">2 days ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
+                                                    <div class="notification-list-user-img"><img
+                                                            src="assets/images/avatar-4.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Monaan Pechi</span> is
+                                                        watching your main repository
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
+                                                    <div class="notification-list-user-img"><img
+                                                            src="assets/images/avatar-5.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Jessica
+                                                            Caruso</span>accepted your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
@@ -82,10 +107,13 @@
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                    src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                                aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
@@ -108,8 +136,9 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="d-xl-none d-lg-none" href="adminDashboard">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
@@ -118,46 +147,57 @@
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-1" aria-controls="submenu-1"><i
+                                        class="fa fa-fw fa-user-circle"></i>Dashboard <span
+                                        class="badge badge-success">6</span></a>
                                 <div id="submenu-1" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">E-Commerce</a>
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                                data-target="#submenu-1-2" aria-controls="submenu-1-2">E-Commerce</a>
                                             <div id="submenu-1-2" class="collapse submenu" style="">
                                                 <ul class="nav flex-column">
                                                     <li class="nav-item">
                                                         <a class="nav-link" href="index.html">E Commerce Dashboard</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="ecommerce-product.html">Product List</a>
+                                                        <a class="nav-link" href="ecommerce-product.html">Product
+                                                            List</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="ecommerce-product-single.html">Product Single</a>
+                                                        <a class="nav-link" href="ecommerce-product-single.html">Product
+                                                            Single</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="ecommerce-product-checkout.html">Product Checkout</a>
+                                                        <a class="nav-link"
+                                                            href="ecommerce-product-checkout.html">Product Checkout</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dashboard-finance.html">Finance</a>
+                                            <a class="nav-link" href="customerList.php">Vehicle Owner</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dashboard-sales.html">Sales</a>
+                                            <a class="nav-link" href="mechanicList.php">Mechanic</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                                data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>
                                             <div id="submenu-1-1" class="collapse submenu" style="">
                                                 <ul class="nav flex-column">
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="dashboard-influencer.html">Influencer</a>
+                                                        <a class="nav-link"
+                                                            href="dashboard-influencer.html">Influencer</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="influencer-finder.html">Influencer Finder</a>
+                                                        <a class="nav-link" href="influencer-finder.html">Influencer
+                                                            Finder</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="influencer-profile.html">Influencer Profile</a>
+                                                        <a class="nav-link" href="influencer-profile.html">Influencer
+                                                            Profile</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -185,13 +225,16 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">E-commerce Dashboard Template </h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <h2 class="pageheader-title">Vehicle Owner List </h2>
+                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus
+                                    vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard Template</li>
+                                            <li class="breadcrumb-item"><a href="#"
+                                                    class="breadcrumb-link">Dashboard</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard
+                                                Template</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -213,8 +256,11 @@
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">12099</h1>
                                         </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
+                                        <div
+                                            class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                                    class="fa fa-fw fa-arrow-up"></i></span><span
+                                                class="ml-1">5.86%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -232,8 +278,11 @@
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">1245</h1>
                                         </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
+                                        <div
+                                            class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                                    class="fa fa-fw fa-arrow-up"></i></span><span
+                                                class="ml-1">10%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -251,8 +300,10 @@
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">13000</h1>
                                         </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                                        <div
+                                            class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                                    class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -270,8 +321,12 @@
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">$1340</h1>
                                         </div>
-                                        <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
+                                        <div
+                                            class="metric-label d-inline-block float-right text-danger font-weight-bold">
+                                            <span
+                                                class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i
+                                                    class="fa fa-fw fa-arrow-down"></i></span><span
+                                                class="ml-1">4%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -281,119 +336,96 @@
                             <!-- ============================================================== -->
                         </div>
                         <div class="pendmech">
-                        <div class="row">
-                            <!-- ============================================================== -->
-                      
-                            <!-- ============================================================== -->
+                            <div class="row">
+                                <!-- ============================================================== -->
 
-                                          <!-- recent orders  -->
-                            <!-- ============================================================== -->
-                           
-                            <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <h5 class="card-header">Pending Menchanics</h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0 Phead">#</th>
-                                                        <th class="border-0 Phead">Image</th>
-                                                        <th class="border-0 Phead">Mid</th>
-                                                        <th class="border-0 Phead">First Name</th>
-                                                        <th class="border-0 Phead">Last Name</th>
-                                                        <th class="border-0 Phead">Address</th>
-                                                        <th class="border-0 Phead">Contact Number</th>
-                                                        <th class="border-0 Phead">Attached Document</th>
-                                                        <th class="border-0 Phead">Action</th>
-                                                        
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="assets/images/product-pic.jpg" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>132314 </td>
-                                                        <td>Jepriel</td>
-                                                        <td>Tibay</td>
-                                                        <td>Camiguin</td>
-                                                        <td>09229348456</td>
-                                                        <td><a href="">Attached doc</a></td>
-                                                        <td class="actionbutton">
-                                                            <button class="accept">Accept</button>
-                                                            <button class="decline">Decline</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="assets/images/product-pic.jpg" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>132314 </td>
-                                                        <td>Jepriel</td>
-                                                        <td>Tibay</td>
-                                                        <td>Camiguin</td>
-                                                        <td>09229348456</td>
-                                                        <td><a href="">Attached doc</a></td>
-                                                        <td class="actionbutton">
-                                                            <button class="accept">Accept</button>
-                                                            <button class="decline">Decline</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="assets/images/product-pic.jpg" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>132314 </td>
-                                                        <td>Jepriel</td>
-                                                        <td>Tibay</td>
-                                                        <td>Camiguin</td>
-                                                        <td>09229348456</td>
-                                                        <td><a href="">Attached doc</a></td>
-                                                        <td class="actionbutton">
-                                                            <button class="accept">Accept</button>
-                                                            <button class="decline">Decline</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="assets/images/product-pic.jpg" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>132314 </td>
-                                                        <td>Jepriel</td>
-                                                        <td>Tibay</td>
-                                                        <td>Camiguin</td>
-                                                        <td>09229348456</td>
-                                                        <td><a href="">Attached doc</a></td>
-                                                        <td class="actionbutton">
-                                                            <button class="accept">Accept</button>
-                                                            <button class="decline">Decline</button>
-                                                        </td>
-                                                    </tr>
-                                                   
-                                                </tbody>
-                                            </table>
+                                <!-- ============================================================== -->
+
+                                <!-- recent orders  -->
+                                <!-- ============================================================== -->
+                              
+
+                                <!-- ============================================================== -->
+                                <!-- end recent orders  -->
+
+
+                                <!-- ============================================================== -->
+
+                                <!-- ============================================================== -->
+                                <form method="POST">
+                                    <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                                        <div class="card">
+                                            <h5 class="card-header">Vehicle Owner</h5>
+                                            <div class="card-body p-0">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class="bg-light">
+                                                            <tr class="border-0">
+                                                                <th class="border-0 Phead">#</th>
+                                                                <th class="border-0 Phead">Image</th>
+                                                                <th class="border-0 Phead">Mid</th>
+                                                                <th class="border-0 Phead">First Name</th>
+                                                                <th class="border-0 Phead">Last Name</th>
+                                                                <th class="border-0 Phead">Address</th>
+                                                                <th class="border-0 Phead">Email</th>
+                                                                <th class="border-0 Phead">Contact Number</th>
+                                                                <th class="border-0 Phead">Vehicle Type</th>
+                                                                <th class="border-0 Phead">Username</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                   $sql1 ="SELECT * from customer WHERE custID";
+                                                   $query = $dbh -> prepare($sql1);
+                                                   $query->execute();    
+                                                   $results=$query->fetchALL(PDO::FETCH_OBJ);
+                                       
+                                                     if($query->rowCount()>0)
+                                                     {
+                                                     foreach ($results as $result) 
+                                                     {
+                                                   ?>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>
+                                                                    <div class="m-r-10"><img
+                                                                            src="assets/images/product-pic.jpg"
+                                                                            alt="user" class="rounded" width="45"></div>
+                                                                </td>
+                                                                <td><?php echo htmlentities($result->custID);?> </td>
+                                                                <td><?php echo htmlentities($result->custFirstname);?>
+                                                                </td>
+                                                                <td><?php echo htmlentities($result->custLastname);?>
+                                                                </td>
+                                                                <td><?php echo htmlentities($result->custAddress);?>
+                                                                </td>
+                                                                <td><?php echo htmlentities($result->custEmail);?></td>
+                                                                <td><?php echo htmlentities($result->custCnumber);?>
+                                                                </td>
+
+                                                                <td><?php echo htmlentities($result->vehicleType);?>
+                                                                </td>
+                                                                
+                                                                <td><?php echo htmlentities($result->Username);?></td>
+                                                               
+                                                            </tr>
+
+                                                        </tbody>
+                                                        <?php }}?>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
+
                             </div>
-                            <!-- ============================================================== -->
-                            <!-- end recent orders  -->
-
-    
-                            <!-- ============================================================== -->
-                            
-                            <!-- ============================================================== -->
                         </div>
-                    </div>
 
-                       
-                        
-                        
+
+
+
                     </div>
                 </div>
             </div>
@@ -404,7 +436,8 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                             Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a
+                                href="https://colorlib.com/wp/">Colorlib</a>.
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="text-md-right footer-links d-none d-sm-block">
@@ -449,5 +482,5 @@
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
 </body>
- 
+
 </html>

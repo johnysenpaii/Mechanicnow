@@ -4,7 +4,8 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
 if(isset($_POST['Login']))
 {
     $Username=$_POST['Username'];
-    $Password=$_POST['Password'];
+    $Password=$_POST['Password']; //hashedpwd
+    //$valid = password_verify($input, $Password); //1 or 0
 
     $sql="SELECT * FROM customer WHERE Username=:Username AND Password=:Password";
     $query=$dbh->prepare($sql);
@@ -23,10 +24,9 @@ if(isset($_POST['Login']))
       echo "<script type='text/javascript'>document.location='userDashboard.php';</script>";
     }
 
-    $Username=$_POST['Username'];
-    $Password=$_POST['Password'];
+    
 
-    $sql="SELECT * FROM mechanic WHERE Password=:Username AND Password=:Password";
+    $sql="SELECT * FROM mechanic WHERE Username=:Username AND Password=:Password";
     $query=$dbh->prepare($sql);
     $query->bindParam(':Username',$Username,PDO::PARAM_STR);
     $query->bindParam(':Password',$Password,PDO::PARAM_STR);
@@ -35,12 +35,16 @@ if(isset($_POST['Login']))
     if($query->rowCount()>0)
     {
       session_regenerate_id();
+      $_SESSION['mechID']=$results['mechID'];
+      $_SESSION['mechFirstname']=$results['mechFirstname'];
+      $_SESSION['mechLastname']=$results['mechLastname'];
       $_SESSION['Username']=$results['Username'];
       $_SESSION['Password']=$results['Password'];
-      echo "<script type='text/javascript'>document.location='mechanicDashboard.html';</script>";
+      echo "<script type='text/javascript'>document.location='mechanicDashboard.php';</script>";
+      
     }
 
-
+   
 }
 ?>
 <!DOCTYPE html>

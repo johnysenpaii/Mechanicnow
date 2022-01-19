@@ -845,6 +845,10 @@ button:hover{
 .avatar-img{
     width: 5em;
     height: 5em;
+    margin-bottom: 1em;
+}
+.imgspace{
+    margin-top: 1em;
 }
 .info-sec{
     display: flex;
@@ -861,4 +865,3 @@ button:hover{
 .map-3{
     margin-bottom: 3em;
 }
-
