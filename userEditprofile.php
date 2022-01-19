@@ -156,10 +156,27 @@ if(isset($_POST['edit']))
                     </br>
                     <h2>Account Information</h2>
                     <input type="text" name="Username" value="<?php echo htmlentities($result->Username);?>" class="textin" placeholder="Username" required>
-                    <input type="password" name="Password" class="textin" placeholder="Password" required>
-                    <input type="password" name="custconfirmpassword" class="textin" placeholder="Confirm Password" required>
-                    <button class="editbtn" name="edit">Confirm</button>
+                    <div class="predit" style="margin-top: 2em; margin-bottom: 5em;"><a id="myBtn" style="text-decoration: none; font-size: 18px;  font-weight: 800; padding-inline: 2.8em; padding-block: 1em; cursor: pointer; color: white;">Confirm</a></div>
+                    
                 </div>
+            </div>
+            <div id="myModal" class="modals">
+
+              <!-- Modal content -->
+              <div class="modal-contents">
+                <div class="modal-header">
+                  <span class="closed">&times;</span>
+                  <h3 class="pptext">Enter your password to save changes</h3>
+                </div>
+                <div class="modal-body">
+                <input type="password" name="Password" class="textin" placeholder="Password" required><br>
+                <input type="password" name="custconfirmpassword" class="textin" placeholder="Confirm Password" required>
+                </div>
+                <div class="modal-footer">
+                <button class="editbtn btnedit" name="edit">Save Changes</button>
+                </div>
+              </div>
+
             </div>
             <?php }}?>
             </form>

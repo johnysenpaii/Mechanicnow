@@ -87,8 +87,8 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
                     <h2>Account Information</h2>
                     <input type="text" name="Username" value="<?php echo htmlentities($result->Username);?>" class="textin" placeholder="Username" required>
                     <input type="password" name="Password" value="<?php echo htmlentities($result->custPassword);?>" class="textin" placeholder="Password" required>
-                    <!-- <button class="editbtn">Edit Information</button> -->
-                    <a href="userEditprofile.php?regeditid=<?php echo htmlentities($result->custID)?>">Edit Information</a>
+                    <div  class="predit" style="margin-top: 2em; margin-bottom: 5em;"><a style="text-decoration: none; font-size: 18px;  font-weight: 800; padding-inline: 2.8em; padding-block: 1em;" href="userEditprofile.php?regeditid=<?php echo htmlentities($result->custID)?>">Edit Information</a></div>
+                            
                 </div>
             </div>
             <?php }}?>
