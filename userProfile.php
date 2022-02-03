@@ -1,9 +1,8 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +17,7 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
 </head>
 <body>
     <?php
-    include('C:\xampp\htdocs\DEVGRU\Mechanicnow\Uheader.php');
+    include('Uheader.php');
     ?>
     
     <div class="master-container">
@@ -96,7 +95,7 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
         </section>
         
         <?php
-        include('C:\xampp\htdocs\DEVGRU\Mechanicnow\bottom-nav.php');
+        include('bottom-nav.php');
         ?>
     </div>
 

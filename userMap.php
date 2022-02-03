@@ -12,7 +12,7 @@
 </head>
 <body>
     <?php
-    include('C:\xampp\htdocs\DEVGRU\Mechanicnow\Uheader.php');
+    include('Uheader.php');
     ?>
     <div class="master-container">
         <section>
@@ -28,7 +28,7 @@
         </section>
         
         <?php
-        include('C:\xampp\htdocs\DEVGRU\Mechanicnow\bottom-nav.php');
+        include('bottom-nav.php');
         ?>
     </div>
     <script
