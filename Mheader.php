@@ -12,7 +12,7 @@
                     <div class="dropdown">
                         <span>Notifications</span>
                         <div class="dropdown-content">
-                            <p>New Update!!</p>
+                        
                         </div>
                     </div>
                 </a></li>
