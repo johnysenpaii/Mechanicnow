@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
 if(isset($_POST['createaccount']))
 {
     $username=$_POST['adminUserN'];
@@ -17,7 +17,11 @@ if(isset($_POST['createaccount']))
       session_regenerate_id();
       $_SESSION['adminUserN']=$results['adminUserN'];
       $_SESSION['adminPass']=$results['adminPass'];
-      echo "<script type='text/javascript'>document.location='./concept-master/adminDashboard.html';</script>";
+      echo "<script type='text/javascript'>alert('Welcome Admin!!');</script>";
+      echo "<script type='text/javascript'>document.location='adminSide.php';</script>";
+    }
+    else{
+        echo "<script type='text/javascript'>alert('Make sure your password is the same');</script>";
     }
 
 }
@@ -95,5 +99,10 @@ if(isset($_POST['createaccount']))
         </div>
     </footer>
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+        function preventBack(){window.history.forward();}
+        setTimeout("preventBack()",0);
+        window.onunload = function(){ null };
+    </script>
 </body>
 </html>

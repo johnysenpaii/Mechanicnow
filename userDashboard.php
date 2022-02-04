@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
 
 ?>
 
@@ -18,7 +18,7 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
 </head>
 <body>
     <?php
-    include('C:\xampp\htdocs\DEVGRU\Mechanicnow\Uheader.php');
+    include('Uheader.php');
     ?>
     
     <div class="master-container">
@@ -33,7 +33,7 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
                         <div class="textarea">
                             <h3>CAR</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corrupti.</p>
-                            <button>GO TO</button>
+                            <a href="mechanicPage.php"><button >GO TO</button></a>
                         </div>
                     </div>
                     <div class="card">
@@ -43,7 +43,7 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
                         <div class="textarea">
                             <h3>MOTORCYCLE</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corrupti.</p>
-                            <button>GO TO</button>
+                            <a href="mechanicPage.php"><button >GO TO</button></a>
                         </div>
                     </div>
                     <div class="card">
@@ -53,7 +53,7 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
                         <div class="textarea">
                             <h3>BICYCLE</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corrupti.</p>
-                            <button>GO TO</button>
+                            <a href="mechanicPage.php"><button >GO TO</button></a>
                            <!--<div class="button">
                                 <p>GO TO</p>
                             </div>-->
@@ -75,7 +75,7 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
             </div>
         </div> -->
         <?php
-        include('C:\xampp\htdocs\DEVGRU\Mechanicnow\bottom-nav.php');
+        include('bottom-nav.php');
         ?>
     </div>
 
