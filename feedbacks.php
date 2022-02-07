@@ -37,7 +37,7 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                     <div class="collapse navbar-collapse order-last" id="nav">
                         <ul class="navbar-nav flex-column w-100 ml-2 justify-content-start">
                             <li class="nav-item">
-                                <a href="adminSide.php" class="nav-link "><i class="bi bi-speedometer"></i>
+                                <a href="adminSide.php" class="nav-link"><i class="bi bi-speedometer"></i>
                                     Dashboard</a>
                             </li>
                             <li class="nav-item">
@@ -51,16 +51,17 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                                 <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
                                     <li><a href="userAdmin.php" class="dropdown-item pl-4 p-2"><i
                                                 class="bi bi-person-circle"></i> Clients</a></li>
-                                    <li><a href="mechAdmin.php" class="dropdown-item pl-4 p-2 active"><i
+                                    <li><a href="mechAdmin.php" class="dropdown-item pl-4 p-2"><i
                                                 class="bi bi-tools"></i> Mechanics</a></li>
                                 </ul>
                             </li>
+        
                             <li class="nav-item dropdown w-100">
                                 <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-expanded="false"><i class="bi bi-star-fill"></i>
                                     Feedbacks</a>
                                 <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
-                                    <li><a href="feedbacks.php" class="dropdown-item pl-4 p-2"><i
+                                    <li><a href="feedbacks.php" class="dropdown-item pl-4 p-2 active"><i
                                                 class="bi bi-person-circle"></i> Clients</a></li>
                                     <li><a href="mechfeedbacks.php" class="dropdown-item pl-4 p-2"><i
                                                 class="bi bi-tools"></i> Mechanics</a></li>
@@ -70,8 +71,8 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                             <br>
                             <hr class="text-light m-1">
                             <li class="nav-item w-100">
-                                <a onclick="myconfirm()" class="nav-link text-danger"><i
-                                        class="bi bi-door-closed"></i> Logout</a>
+                                <a onclick="myconfirm()" class="nav-link text-danger"><i class="bi bi-door-closed"></i>
+                                    Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -79,43 +80,41 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
             </aside>
             <main class="col px-0 flex-grow-1">
                 <div class="container py-3">
-                    <section class="my-container">
-                    <div class="display-6 my-2">Mechanics</div>
+                    <section class="my-container container-fluid">
+                        <div class="display-6 my-2">Feedbacks</div>
                         <hr class="text-dark m-2">
-                        <form method="POST">
-                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12"data-aos="fade-up">
-                                <div class="card">
-                                    <h5 class="card-header">Mechanic List</h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table" >
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0 Phead">Image</th>
-                                                        <th class="border-0 Phead">Mid</th>
-                                                        <th class="border-0 Phead">First Name</th>
-                                                        <th class="border-0 Phead">Last Name</th>
-                                                        <th class="border-0 Phead">Address</th>
-                                                        <th class="border-0 Phead">Email</th>
-                                                        <th class="border-0 Phead">Contact Number</th>
-                                                        <th class="border-0 Phead">Valid ID</th>
-                                                        <th class="border-0 Phead">Specialization</th>
-                                                        <th class="border-0 Phead">Username</th>
-                                                        <th class="border-0 Phead">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <h5 class="card-header"><img src="img/avatar.png" alt="avatar" width="35"
+                                        class="img-thumbnail"> Jepriel Tibay <i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i></h5>
+                                <div class="card-body">
+                                    <h5 class="card-title">Great!!</h5>
+                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, ducimus dolores. Consequatur odio consectetur qui mollitia in earum placeat neque nam maxime totam aut odit veritatis laboriosam facilis, quaerat unde?</p>
+                                    <a href="#" class="btn btn-primary btn-sm">Reply <i class="bi bi-reply-fill"></i></a> <i class="bi bi-hand-thumbs-up-fill"></i>
+
                                 </div>
                             </div>
-                        </form>
-                    </section>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 my-2">
+                            <div class="card">
+                                <h5 class="card-header"><img src="img/avatar.png" alt="avatar" width="35"
+                                        class="img-thumbnail"> John Jalosjos <i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></h5>
+                                <div class="card-body">
+                                    <h5 class="card-title">Nice!!</h5>
+                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, ducimus dolores. Consequatur odio consectetur qui mollitia in earum placeat neque nam maxime totam aut odit veritatis laboriosam facilis, quaerat unde?</p>
+                                    <a href="#" class="btn btn-primary btn-sm">Reply <i class="bi bi-reply-fill"></i></a> <i class="bi bi-hand-thumbs-up-fill"></i>
+
+                                </div>
+                            </div>
+                        </div>
                 </div>
-            </main>
+                </section>
         </div>
+        </main>
+    </div>
     </div>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -127,10 +126,10 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
     <!-- custom js -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init({
+    AOS.init({
         duration: 3000,
         once: true,
-      });
+    });
     </script>
     <script>
     function myconfirm() {

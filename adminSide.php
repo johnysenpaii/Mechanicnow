@@ -11,110 +11,109 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
         integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <!-- custom css -->
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
-    <?php include('topnav.php');?>
-    <div class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
-        <a href="adminSide.php" class="navbar-brand text-light mt-2">
-            <div class="display-5 font-weight-bold">Admin</div>
-        </a>
-        <ul class="navbar-nav d-flex flex-column mt-2 w-100">
-            <li class="nav-item w-100">
-                <a href="adminSide.php" class="nav-link text-light pl-4"><i class="bi bi-person-lines-fill"></i>
-                    Pendings</a>
-            </li>
-            <li class="nav-item w-100">
-                <a href="userAdmin.php" class="nav-link text-light pl-4"><i class="bi bi-person-fill"></i> Users</a>
-            </li>
-            <li class="nav-item w-100">
-                <a href="mechAdmin.php" class="nav-link text-light pl-4"><i class="bi bi-tools"></i> Mechanics</a>
-            </li>
-            <li class="nav-item w-100">
-                <a href="adminLogin.php" onclick="myconfirm()" class="nav-link text-danger pl-4"><i class="bi bi-door-closed"></i> Logout</a>
-            </li>
-        </ul>
-    </div>
-    <section class="p-2 my-container">
-        <button class="btn my-4" id="menu-btn">Toggle Sidebar <i class="bi bi-arrow-right-short"></i></button>
-        <form method="POST">
-            <div class="col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12">
-                <div class="card"> 
-                    <h5 class="card-header">Pending Menchanics</h5>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="bg-light">
-                                    <tr class="border-0">
-                                        <th class="border-0 Phead">#</th>
-                                        <th class="border-0 Phead">Image</th>
-                                        <th class="border-0 Phead">Mid</th>
-                                        <th class="border-0 Phead">First Name</th>
-                                        <th class="border-0 Phead">Last Name</th>
-                                        <th class="border-0 Phead">Address</th>
-                                        <th class="border-0 Phead">Email</th>
-                                        <th class="border-0 Phead">Contact Number</th>
-                                        <th class="border-0 Phead">Valid ID</th>
-                                        <th class="border-0 Phead">Specialization</th>
-                                        <th class="border-0 Phead">Username</th>
-                                        <th class="border-0 Phead">Action</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                                   $sql1 ="SELECT * from mechanic WHERE mechID";
-                                                   $query = $dbh -> prepare($sql1);
-                                                   $query->execute();    
-                                                   $results=$query->fetchALL(PDO::FETCH_OBJ);
-                                       
-                                                     if($query->rowCount()>0)
-                                                     {
-                                                     foreach ($results as $result) 
-                                                     {
-                                                   ?>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <img src="img/avatar.png" alt="avatar" width="35" class="img-thumbnail">
-                                        </td>
-                                        <td><?php echo htmlentities($result->mechID);?> </td>
-                                        <td><?php echo htmlentities($result->mechFirstname);?>
-                                        </td>
-                                        <td><?php echo htmlentities($result->mechLastname);?>
-                                        </td>
-                                        <td><?php echo htmlentities($result->mechAddress);?>
-                                        </td>
-                                        <td><?php echo htmlentities($result->mechEmail);?></td>
-                                        <td><?php echo htmlentities($result->mechCnumber);?>
-                                        </td>
-
-                                        <td><?php echo htmlentities($result->mechValidID);?>
-                                        </td>
-                                        <td><?php echo htmlentities($result->Specialization);?>
-                                        </td>
-                                        <td><?php echo htmlentities($result->Username);?></td>
-                                        <td class="actionbutton">
-                                            <button class="btn btn-success btn-sm">Accept</button>
-                                            <button class="btn btn-danger btn-sm">Decline</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <?php }}?>
-                            </table>
-                        </div>
+    <div class="container-fluid">
+        <div class="row min-vh-100 flex-column flex-md-row">
+            <aside class="col-12 col-md-3 col-xl-2 p-0 bg-dark ">
+                <nav class="navbar navbar-expand-md navbar-dark bd-dark flex-md-column flex-row align-items-start py-2 text-start sticky-top "
+                    id="sidebar">
+                    <div class="text-start p-3">
+                        <a href="#" class="navbar-brand mx-0 font-weight-bold  text-nowrap"><img
+                                src="img/mechanicnowlogo.svg" class="logo" alt="" width="60"> Mechanic now</a>
                     </div>
+                    <button type="button" class="navbar-toggler border-0 order-1" data-toggle="collapse"
+                        data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse order-last" id="nav">
+                        <ul class="navbar-nav flex-column w-100 ml-2 justify-content-start">
+                            <li class="nav-item">
+                                <a href="adminSide.php" class="nav-link active"><i class="bi bi-speedometer"></i>
+                                    Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pending.php" class="nav-link"><i class="bi bi-person-lines-fill"></i> Mechanic
+                                    Approvals</a>
+                            </li>
+                            <li class="nav-item dropdown w-100">
+                                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-check-fill"></i>
+                                    Monitor</a>
+                                <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
+                                    <li><a href="userAdmin.php" class="dropdown-item pl-4 p-2"><i
+                                                class="bi bi-person-circle"></i> Clients</a></li>
+                                    <li><a href="mechAdmin.php" class="dropdown-item pl-4 p-2"><i
+                                                class="bi bi-tools"></i> Mechanics</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown w-100">
+                                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-expanded="false"><i class="bi bi-star-fill"></i>
+                                    Feedbacks</a>
+                                <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
+                                    <li><a href="feedbacks.php" class="dropdown-item pl-4 p-2"><i
+                                                class="bi bi-person-circle"></i> Clients</a></li>
+                                    <li><a href="mechfeedbacks.php" class="dropdown-item pl-4 p-2"><i
+                                                class="bi bi-tools"></i> Mechanics</a></li>
+                                </ul>
+
+                            </li>
+                            <br>
+                            <hr class="text-light m-1">
+                            <li class="nav-item w-100">
+                                <a onclick="myconfirm()" class="nav-link text-danger"><i class="bi bi-door-closed"></i>
+                                    Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+            <main class="col px-0 flex-grow-1">
+                <div class="container py-3">
+                    <section class="my-container">
+                        <div class="display-6 my-2">Dashboard</div>
+                        <hr class="text-dark m-2">
+                        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" data-aos="fade-up">
+                            <div class="col-md-12 col-sm-12 mx-4">
+                                <div class="card m-0 shadow border border-info " style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-muted">Vehicle Owner</h6>
+                                        <p class="card-text display-6 float-right">2</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 mx-4">
+                                <div class="card m-0 shadow border border-info" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-muted">Mechanics</h6>
+                                        <p class="card-text display-6 float-right">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 mx-4">
+                                <div class="card m-0 shadow border border-info" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-muted">Banned</h6>
+                                        <p class="card-text display-6 float-right">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-chart-filled"></div>
+                    </section>
                 </div>
-            </div>
-        </form>
-    </section>
-
-
+            </main>
+        </div>
+    </div>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
@@ -123,24 +122,35 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
         integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous">
     </script>
     <!-- custom js -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-    var menu_btn = document.querySelector("#menu-btn")
-    var sidebar = document.querySelector("#sidebar")
-    var container = document.querySelector(".my-container")
-    menu_btn.addEventListener("click", () => {
-        sidebar.classList.toggle("active-nav")
-        container.classList.toggle("active-cont")
-    })
+    AOS.init({
+        duration: 3000,
+        once: true,
+    });
     </script>
-<script>
+
+    <script>
     function myconfirm() {
-  let text = "Are sure you want to leave?.";
-  if (confirm(text) == true) {
-    location.replace("adminLogin.php")
-  } else {
-    location.reload();
-  }}
-</script>
+        let text = "Are sure you want to leave?.";
+        if (confirm(text) == true) {
+            location.replace("adminLogin.php")
+        } else {
+            location.reload();
+        }
+        new Chartist.Line('.line-chart-filled', {
+            labels: [1, 2, 3, 4, 5, 6, 7, 8],
+            series: [
+                [5, 9, 7, 8, 5, 3, 5, 4]
+            ]
+        }, {
+            low: 0,
+            showArea: true
+        });
+    }
+    </script>
+    <script src="@@path/vendor/chartist/dist/chartist.min.js"></script>
+    <script src="@@path/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <?php include('footer.php');?>
 </body>
 

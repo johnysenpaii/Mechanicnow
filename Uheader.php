@@ -32,7 +32,9 @@
                     <div class="dropdown">
                         <span>Notifications</span>
                         <div class="dropdown-content">
-                            <p>New Update!!</p>
+                            <div class=""> New Update!</div>
+                            <div class=""> Plaese rate us.</div>
+                            <div class=""> Got any Problem?</div>
                         </div>
                     </div>
                 </a></li>

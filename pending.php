@@ -37,11 +37,11 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                     <div class="collapse navbar-collapse order-last" id="nav">
                         <ul class="navbar-nav flex-column w-100 ml-2 justify-content-start">
                             <li class="nav-item">
-                                <a href="adminSide.php" class="nav-link "><i class="bi bi-speedometer"></i>
+                                <a href="adminSide.php" class="nav-link"><i class="bi bi-speedometer"></i>
                                     Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a href="pending.php" class="nav-link"><i class="bi bi-person-lines-fill"></i> Mechanic
+                                <a href="pending.php" class="nav-link active"><i class="bi bi-person-lines-fill"></i> Mechanic
                                     Approvals</a>
                             </li>
                             <li class="nav-item dropdown w-100">
@@ -51,7 +51,7 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                                 <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
                                     <li><a href="userAdmin.php" class="dropdown-item pl-4 p-2"><i
                                                 class="bi bi-person-circle"></i> Clients</a></li>
-                                    <li><a href="mechAdmin.php" class="dropdown-item pl-4 p-2 active"><i
+                                    <li><a href="mechAdmin.php" class="dropdown-item pl-4 p-2"><i
                                                 class="bi bi-tools"></i> Mechanics</a></li>
                                 </ul>
                             </li>
@@ -80,38 +80,81 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
             <main class="col px-0 flex-grow-1">
                 <div class="container py-3">
                     <section class="my-container">
-                    <div class="display-6 my-2">Mechanics</div>
+                    <div class="display-6 my-2">Approvals</div>
                         <hr class="text-dark m-2">
                         <form method="POST">
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12"data-aos="fade-up">
                                 <div class="card">
-                                    <h5 class="card-header">Mechanic List</h5>
-                                    <div class="card-body p-0">
+                                    <h5 class="card-header">Vehicle Owner</h5>
+                                    <div class="card-body p-0" >
                                         <div class="table-responsive">
                                             <table class="table" >
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0 Phead">Image</th>
-                                                        <th class="border-0 Phead">Mid</th>
+                                                        <th class="border-0 Phead">id</th>
                                                         <th class="border-0 Phead">First Name</th>
                                                         <th class="border-0 Phead">Last Name</th>
                                                         <th class="border-0 Phead">Address</th>
                                                         <th class="border-0 Phead">Email</th>
                                                         <th class="border-0 Phead">Contact Number</th>
-                                                        <th class="border-0 Phead">Valid ID</th>
+                                                        <th class="border-0 Phead">Valid Papers</th>
                                                         <th class="border-0 Phead">Specialization</th>
                                                         <th class="border-0 Phead">Username</th>
-                                                        <th class="border-0 Phead">Action</th>
+                                                        <th class="border-0 Phead">Status</th>
+
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                   $sql1 ="SELECT * from mechanic WHERE mechID";
+                                                   $query = $dbh -> prepare($sql1);
+                                                   $query->execute();    
+                                                   $results=$query->fetchALL(PDO::FETCH_OBJ);
+                                       
+                                                     if($query->rowCount()>0)
+                                                     {
+                                                     foreach ($results as $result) 
+                                                     {
+                                                   ?>
+                                                    <tr>
+                                                        <td>
+                                                            <img src="img/avatar.png" alt="avatar" width="35"
+                                                                class="img-thumbnail">
+                                                        </td>
+                                                        <td><?php echo htmlentities($result->mechID);?> </td>
+                                                        <td><?php echo htmlentities($result->mechFirstname);?>
+                                                        </td>
+                                                        <td><?php echo htmlentities($result->mechLastname);?>
+                                                        </td>
+                                                        <td><?php echo htmlentities($result->mechAddress);?>
+                                                        </td>
+                                                        <td><?php echo htmlentities($result->mechEmail);?></td>
+                                                        <td><?php echo htmlentities($result->mechCnumber);?>
+                                                        </td>
+
+                                                        <td><?php echo htmlentities($result->mechValidID);?>
+                                                        </td>
+                                                        <td><?php echo htmlentities($result->Specialization);?>
+                                                        </td>
+
+                                                        <td><?php echo htmlentities($result->Username);?></td>
+                                                        <td><button class="btn btn-success btn-sm"><i class="bi bi-person-check-fill"></i></button>
+                                                            <button class="btn btn-danger btn-sm"><i class="bi bi-person-x-fill"></i></button></td>
+
+
+                                                    </tr>
+
                                                 </tbody>
+                                                <?php }}?>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
+
                     </section>
                 </div>
             </main>
