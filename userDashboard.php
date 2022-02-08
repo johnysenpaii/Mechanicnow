@@ -51,7 +51,7 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                         <div class="textarea">
                             <h3>BICYCLE</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corrupti.</p>
-                            <a href="mechanicPage.php"><button >GO TO</button></a>
+                            <a href="bike.php"><button >GO TO</button></a>
                            <!--<div class="button">
                                 <p>GO TO</p>
                             </div>-->

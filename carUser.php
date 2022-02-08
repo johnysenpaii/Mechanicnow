@@ -31,7 +31,7 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                         <div class="textarea">
                             <h3>Flat Tires</h3>
                             <br>
-                            <a href="mechanicPage.php"><button >GO TO</button></a>
+                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
                         </div>
                     </div>
                     <div class="card">
@@ -41,7 +41,7 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                         <div class="textarea">
                             <h3>Engine Failure</h3>
                             <br>
-                            <a href="mechanicPage.php"><button >GO TO</button></a>
+                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
                         </div>
                     </div>
                     <div class="card">
@@ -51,7 +51,7 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                         <div class="textarea">
                             <h3>Others</h3>
                             <br>
-                            <a href="mechanicPage.php"><button >GO TO</button></a>
+                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
                            <!--<div class="button">
                                 <p>GO TO</p>
                             </div>-->
