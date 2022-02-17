@@ -9,7 +9,8 @@
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <nav class="navstyle">
             <ul>
-                <li><a href="">Welcome <?php echo htmlentities($_SESSION["Username"]);?></a></li>
+                <li><a href="mechanicDashboard.php">Welcome DODO</a></li>
+                <!-- <li><a href="mechanicDashboard.php">Welcome <?php echo htmlentities($_SESSION["Username"]);?></a></li> -->
                 <li><a href="">Notifications</a></li>
                 <li><a href="">Settings</a></li>
                 <li><a href ="mechanicProfile.php">Profile</a></li>
