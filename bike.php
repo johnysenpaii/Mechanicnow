@@ -26,22 +26,12 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                 <div class="images">
                     <div class="card">
                         <div class="images-cd">
-                            <img src="img/car.svg" class="img" alt="">
+                            <img src="img/bicycle.svg" class="img" alt="">
                         </div>
                         <div class="textarea">
-                            <h3>CAR</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corrupti.</p>
-                            <a href="carUSer.php"><button >GO TO</button></a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="images-cd">
-                            <img src="img/moto.svg" class="img" alt="">
-                        </div>
-                        <div class="textarea">
-                            <h3>MOTORCYCLE</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corrupti.</p>
-                            <a href="motorcategory.php"><button >GO TO</button></a>
+                            <h3>Flat Tires</h3>
+                            <br>
+                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
                         </div>
                     </div>
                     <div class="card">
@@ -49,14 +39,12 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                             <img src="img/bicycle.svg" class="img" alt="">
                         </div>
                         <div class="textarea">
-                            <h3>BICYCLE</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corrupti.</p>
-                            <a href="bike.php"><button >GO TO</button></a>
-                           <!--<div class="button">
-                                <p>GO TO</p>
-                            </div>-->
+                            <h3>Engine Failure</h3>
+                            <br>
+                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
                         </div>
                     </div>
+                   
                 </div>
             </div>
         </section>

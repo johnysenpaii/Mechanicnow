@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
 if(isset($_POST['Login']))
 {
     $Username=$_POST['Username'];
@@ -111,20 +111,20 @@ if(isset($_POST['Login']))
             <div class="footer-logo"><img src="img/footerlogo.png" alt=""></div>
             <h3 class="mechanicnowtitle">Mechanic Now</h3>
         </div>
-        <ul class="listfooter">
-            <li>Home</li>
-            <li>About Us</li>
-        </ul>
-        <div class="signupfooter">
-            <h4 class="signup-button-footer"><a href="">Sign Up</a></h4>
-        </div>
         <div class="credits">
             <p>© 2021 Mechanic Now.</p>
         </div>
+        
         <div class="adminLog">
             <a href="adminLogin.php">sign-in as admin</a>
         </div>
     </footer>
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+        function preventBack(){window.history.forward();}
+        setTimeout("preventBack()",0);
+        window.onunload = function(){ null };
+    </script>
+    
 </body>
 </html>
