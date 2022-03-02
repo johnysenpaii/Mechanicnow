@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,75 +19,49 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
     include('Uheader.php');
     ?>
     
-    <div class="master-container">
-        
-    <section>
+    <div class="master-container">  
+        <section>
             <div class="container">
-            <center><h1>Available Motorcycle Mechanics</h1></center>
+                <center><h1>Available Motorcycle Mechanics</h1></center>
                 <div class="searchbar">
                     <input type="text" class="search-bar" placeholder="Search here...">
                     <div class="filter">
                         <img src="img/filter.png" alt="">
                     </div>
                 </div>
-            <div class="mechanic-table" style="overflow-y:auto;">
+                <div class="mechanic-table" style="overflow-y:auto;">
                     <table class="mechanic-all">
-                        <tr>
-                            <th>Profile</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Rating</th>
-                            <th>Action</th>
-                        </tr>
-                        <tr>
-                            <td>img</td>
-                            <td>John jalosjos</td>
-                            <td>Repairs motorcycle problems.</td>
-                            <td>4</td>
-                            <td>Send</td>
-                        </tr>
-                        <tr>
-                            <td>img</td>
-                            <td>Harvey Semblante</td>
-                            <td>Repairs motorcycle problems.</td>
-                            <td>5</td>
-                            <td>Send</td>
-                        </tr>
-                        <tr>
-                            <td>img</td>
-                            <td>Jepriel Tibay</td>
-                            <td>Repairs motorcycle problems.</td>
-                            <td>5</td>
-                            <td>Send</td>
-                        </tr>
-                        <tr>
-                            <td>img</td>
-                            <td>Francisdel Chris Patlingrao</td>
-                            <td>Repairs motorcycle problems.</td>
-                            <td>3</td>
-                            <td>Send</td>
-                        </tr>
-                        <tr>
-                            <td>img</td>
-                            <td>John jalosjos</td>
-                            <td>Repairs motorcycle problems.</td>
-                            <td>5</td>
-                            <td>Send</td>
-                        </tr>
-                        <tr>
-                            <td>img</td>
-                            <td>Harvey Semblante</td>
-                            <td>Repairs motorcycle problems.</td>
-                            <td>4</td>
-                            <td>Send</td>
-                        </tr>
-                        <tr>
-                            <td>img</td>
-                            <td>Jepriel Tibay</td>
-                            <td>Repairs car problems.</td>
-                            <td>5</td>
-                            <td>Send</td>
-                        </tr>
+                        <thead>
+                            <tr>
+                            <th style="font-size: 15px">Profile</th>
+                            <th style="font-size: 15px">Name</th>
+                            <th style="font-size: 15px">Rating</th>
+                            <th style="font-size: 15px">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+							$sql = "SELECT * from mechanic";
+							$query=$dbh->prepare($sql);
+							$query->execute();
+							$results=$query->fetchALL(PDO::FETCH_OBJ);
+							$cnt=1;
+							if($query->rowCount()>0){
+ 							foreach($results as $result){
+						    ?>
+                            <tr>
+                                <td>
+                                <img src="img/avatar.png" alt="avatar" width="35"class="img-thumbnail">
+                                </td>
+                                <td><?php echo htmlentities($result->mechFirstname);?> <?php echo htmlentities($result->mechLastname);?>
+                                </td>
+                                <td></td>
+                                <td>
+                                <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"><a  href="MotorcycleRequestPage.php">Request </a></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <?php $cnt=$cnt+1;}}?>
                     </table>
                 </div>
             </div>
