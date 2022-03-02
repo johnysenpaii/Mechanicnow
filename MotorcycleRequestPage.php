@@ -25,24 +25,39 @@ include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
         <div class="container">
             <h1>Request Information</h1>
             <div class="mechanic-table" style="overflow-y:auto;">
-                <label>Mechanical Problem</label>
+                <h3>Mechanic</h3>
                 <br>
+                <label>Profile</label>
+                <p></p>
+                <br>
+                <label>Name</label>
+                <p></p>
+                <br>
+                <label>Profile</label>
+                <p></p>
+            </div>
+            <div class="mechanic-table" style="overflow-y:auto;">
+                <h3>Mechanical Problem</h3>
                 <br>
                 <input type="checkbox" name="tireRepair">
                 <label>Tire Repair</label>
+                <p></p>
                 <br>
                 <input type="checkbox" name="tireRepair">
                 <label>Chain Loosening Repair</label>
+                <p></p>
                 <br>
                 <input type="checkbox" name="tireRepair">
                 <label>Break Repair</label>
+                <p></p>
                 <br>
-                <label>Others Specify</label>
+                <label style="margin-left: 20px">Others Specify</label>
                 <br>
                 <textarea placeholder="Specify here..." name="tireRepair" style="padding: 30px; font-size: 12px; font-family: var(--ff-primary);"></textarea>
                 <br>
                 <br>
-                <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px" href="CarRequestPage.php"> Send</button>
+                <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"> <a href="">Send</a></button>
+                <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px; margin-left: 40px;"><a  href="motorcategory.php">Cancel</a></button>
             </div>
             </div>
         </section>
