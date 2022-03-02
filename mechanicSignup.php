@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
 if(isset($_POST['register']))
 {
     $mechFirstname=strtoupper($_POST['mechFirstname']);
@@ -77,7 +77,8 @@ if(isset($_POST['register']))
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Stick+No+Bills:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Mechanic Now</title>
+    <title>Mechanic Now | Sign Up</title>
+    <link rel="shortcut icon" type="x-icon" href="img/mechanicnowlogo.svg">
 </head>
 <body>
     <!-- <div class="signupcontent"> -->
@@ -98,15 +99,9 @@ if(isset($_POST['register']))
                         </div>
                         <select type="text" name="Specialization" class="textin" placeholder="Select Specialization..." required>
                             <div style="color: gray;"><option style="color: gray;" value="" disabled selected hidden>Select Specialization...</option></div>
-                            <option value="Diesel Mechanic">Diesel Mechanic</option>
-                            <option value="General Automotive Mechanic">General Automotive Mechanic</option>
-                            <option value="Break and Transmission Technician">Break and Transmission Technician</option>    
-                            <option value="Auto Body Mechanic">Auto Body Mechanic</option>
-                            <option value="Service Technicians">Service Technicians</option>
-                            <option value="Auto Glass Mechanic">Auto Glass Mechanic</option>   
-                            <option value="Heavy Equipment Mechanic">Heavy Equipment Mechanic</option>
-                            <option value="Small Engine Mechanic">Small Engine Mechanic</option>
-                            <option value="Tire Mechanic">Tire Mechanic</option>   
+                            <option value="Diesel Mechanic">Motorcycle Repair</option>
+                            <option value="General Automotive Mechanic">Bicycle Repair</option>
+                            <option value="Break and Transmission Technician">Car Repair</option>    
                         </select>
                         <input type="text" name="mechValidID" class="textin" placeholder="Attach Valid ID" required>
                         <h3>Account Information</h3>

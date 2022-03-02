@@ -21,30 +21,74 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
     
     <div class="master-container">
         
-        <section>
+    <section>
             <div class="container">
-                <div class="images">
-                    <div class="card">
-                        <div class="images-cd">
-                            <img src="img/bicycle.svg" class="img" alt="">
-                        </div>
-                        <div class="textarea">
-                            <h3>Flat Tires</h3>
-                            <br>
-                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
-                        </div>
+            <center><h1>Available Bike Mechanics</h1></center>
+                <div class="searchbar">
+                    <input type="text" class="search-bar" placeholder="Search here...">
+                    <div class="filter">
+                        <img src="img/filter.png" alt="">
                     </div>
-                    <div class="card">
-                        <div class="images-cd">
-                            <img src="img/bicycle.svg" class="img" alt="">
-                        </div>
-                        <div class="textarea">
-                            <h3>Engine Failure</h3>
-                            <br>
-                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
-                        </div>
-                    </div>
-                   
+                </div>
+            <div class="mechanic-table" style="overflow-y:auto;">
+                    <table class="mechanic-all">
+                        <tr>
+                            <th>Profile</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Rating</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>img</td>
+                            <td>John jalosjos</td>
+                            <td>Repairs Bike problems.</td>
+                            <td>5</td>
+                            <td>Send</td>
+                        </tr>
+                        <tr>
+                            <td>img</td>
+                            <td>Harvey Semblante</td>
+                            <td>Repairs Bike problems.</td>
+                            <td>5</td>
+                            <td>Send</td>
+                        </tr>
+                        <tr>
+                            <td>img</td>
+                            <td>Jepriel Tibay</td>
+                            <td>Repairs Bike problems.</td>
+                            <td>5</td>
+                            <td>Send</td>
+                        </tr>
+                        <tr>
+                            <td>img</td>
+                            <td>Francisdel Chris Patlingrao</td>
+                            <td>Repairs Bike problems.</td>
+                            <td>5</td>
+                            <td>Send</td>
+                        </tr>
+                        <tr>
+                            <td>img</td>
+                            <td>John jalosjos</td>
+                            <td>Repairs Bike problems.</td>
+                            <td>5</td>
+                            <td>Send</td>
+                        </tr>
+                        <tr>
+                            <td>img</td>
+                            <td>Harvey Semblante</td>
+                            <td>Repairs Bike problems.</td>
+                            <td>5</td>
+                            <td>Send</td>
+                        </tr>
+                        <tr>
+                            <td>img</td>
+                            <td>Jepriel Tibay</td>
+                            <td>Repairs Bike problems.</td>
+                            <td>5</td>
+                            <td>Send</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </section>

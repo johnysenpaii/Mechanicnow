@@ -24,11 +24,12 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
             <div class="container">
     
                 <div class="searchbar">
-                <input type="text" class="search-bar" placeholder="Search here...">
-                <div class="filter">
-                    <img src="img/filter.png" alt="">
+                    <input type="text" class="search-bar" placeholder="Search here...">
+                    <div class="filter">
+                        <img src="img/filter.png" alt="">
+                    </div>
                 </div>
-                </div>
+                
                 <h3>Results</h3>
                 <div class="mechanic-table" style="overflow-y:auto;">
                     <table class="mechanic-all">

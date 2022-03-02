@@ -57,7 +57,8 @@ if(isset($_POST['Login']))
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Stick+No+Bills:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Mechanic Now</title>
+    <title>Mechanic Now | Login</title>
+    <link rel="shortcut icon" type="x-icon" href="img/mechanicnowlogo.svg">
 </head>
 </head>
 <body>
