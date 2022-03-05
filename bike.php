@@ -57,7 +57,7 @@ include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
                                 </td>
                                 <td></td>
                                 <td>
-                                <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"><a  href="BikeRequestPage.php">Request </a></button>
+                                <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"><a  href="BikeRequestPage.php?regeditid=<?php echo htmlentities($result->mechID)?>">Request</a></button>
                                 </td>
                             </tr>
                         </tbody>

@@ -41,27 +41,32 @@ include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
                         </thead>
                         <tbody>
                             <?php
-							$sql = "SELECT * from mechanic";
+                           
+							$sql ="SELECT * from mechanic WHERE mechID";
 							$query=$dbh->prepare($sql);
+                           
 							$query->execute();
 							$results=$query->fetchALL(PDO::FETCH_OBJ);
-							$cnt=1;
-							if($query->rowCount()>0){
- 							foreach($results as $result){
+
+							if($query->rowCount()>0)
+                            {
+ 							foreach($results as $result)
+                            {
 						    ?>
                             <tr>
                                 <td>
                                 <img src="img/avatar.png" alt="avatar" width="35"class="img-thumbnail">
                                 </td>
-                                <td><?php echo htmlentities($result->mechFirstname);?> <?php echo htmlentities($result->mechLastname);?>
+                                <td>
+                                <?php echo htmlentities($result->mechFirstname);?> <?php echo htmlentities($result->mechLastname);?>
                                 </td>
                                 <td></td>
                                 <td>
-                                <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"><a  href="CarRequestPage.php">Request </a></button>
+                                <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"><a  href="CarRequestPage.php?regeditid=<?php echo htmlentities($result->mechID)?>">Request</a></button>
                                 </td>
                             </tr>
                         </tbody>
-                        <?php $cnt=$cnt+1;}}?>
+                        <?php }}?>
                     </table>
                 </div>
             </div>
