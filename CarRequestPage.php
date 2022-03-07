@@ -12,16 +12,19 @@ $con=mysqli_connect("$host", "$username", "$word","$db_name")or die("cannot conn
 $mechName=$_POST['mechName']; 
 $specMessage=$_POST['specMessage'];
 $checkbox1=$_POST['mechRepair'];  
+$vOwnerName=$_POST['vOwnerName'];
 $chk=""; 
 $spec="";
 $mechN="";
+$vON="";
 foreach($checkbox1 as $chk1)  
    {  
       $chk .= $chk1." ";
    } 
    $spec .= $specMessage;  
    $mechN .= $mechName;
-$in_ch=mysqli_query($con,"INSERT INTO request(mechName, specMessage, mechRepair) values ('$mechN' ,'$spec', '$chk')");  
+   $vON .= $vOwnerName;
+$in_ch=mysqli_query($con,"INSERT INTO request(mechName, vOwnerName, specMessage, mechRepair) values ('$mechN', '$vON' ,'$spec', '$chk')");  
 if($in_ch==1)  
    {  
       echo'<script>alert("Request Sent Successfully")</script>';  
@@ -79,6 +82,7 @@ else
                 <label>Rating:</label>
                 <input class="textin" type="text" name="" placeholder="Rating here"  value="" readonly required>
                 <p></p>
+                <input hidden type="text" name="vOwnerName" value="<?php echo htmlentities($_SESSION["custFirstname"]); ?> <?php echo htmlentities($_SESSION["custLastname"]); ?>">
             </div>
             <div class="mechanic-table" style="overflow-y:auto;">
                 <h3>Mechanical Problem</h3>
