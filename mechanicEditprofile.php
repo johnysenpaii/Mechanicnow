@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
 if(isset($_POST['edit']))
 {
     $id=$_POST['id'];
@@ -88,7 +88,7 @@ if(isset($_POST['edit']))
 </head>
 <body>
 <?php
-    include('C:\xampp\htdocs\DEVGRU\Mechanicnow\Uheader.php');
+    include('C:\xampp\htdocs\MechanicNow\Mechanicnow\Uheader.php');
     ?>
     
     <div class="master-container">

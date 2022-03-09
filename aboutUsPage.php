@@ -8,24 +8,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Stick+No+Bills:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Mechanic Now</title>
+    <title>Mechanic Now | About Us</title>
     <link rel="shortcut icon" type="x-icon" href="img/mechanicnowlogo.svg">
 </head>
 <body>
-<<<<<<< HEAD
-    <header> 
-        <img src="img/mechanicnowlogo.svg" class="logo" alt="">
-=======
     <header>
         <a href="index.php"><img src="img/mechanicnowlogo.svg" class="logo" alt=""></a>
->>>>>>> userRequest
         <p>Mechanic Now</p>
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <nav>
             <ul>
                 <li><a href="howItWorksPage.php">How It Works</a></li>
                 <li><a href="aboutUsPage.php">About Us</a></li>
-                <li><a href="faqPage.php">FAQ 's </a></li>
+                <li><a href="faqPage.php">FAQ</a></li>
                 <li><a href="login.php">Sign in</a></li>
                 <li id="myBtn"><a>Sign up</a></li>
             </ul>
@@ -38,9 +33,8 @@
     <div class="banner banner-gradient">
         <div class="container container--narrow">
             <div class="bannertext">
-                <div class="banner-logo" style="margin-top: -30px"><img src="img/mn-bw(864).png" alt=""></div>
                 <div class="banner-content">
-                    <h1 style="margin-top: 20px; text-align: left;">Vehicle Repair Service <span style="color:blueviolet;">@ Your Disposal.</span></h1>
+                    <h1 style="margin-top: 20px;">About <span style="color:blueviolet;">Us</span></h1>
                 </div>
             </div>
         </div>

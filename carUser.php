@@ -1,6 +1,7 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
+$custAddress1=$_SESSION['custAddress'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,48 +16,71 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
     <title>Mechanic Now</title>
 </head>
 <body>
-    <?php
+<?php
     include('Uheader.php');
     ?>
     
     <div class="master-container">
-        
         <section>
             <div class="container">
-                <div class="images">
-                    <div class="card">
-                        <div class="images-cd">
-                            <img src="img/flat.jpg" class="img" alt="">
-                        </div>
-                        <div class="textarea">
-                            <h3>Flat Tires</h3>
-                            <br>
-                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
-                        </div>
+                <center><h1>Available Car Mechanics</h1></center>
+                <div class="searchbar">
+                    <input type="text" class="search-bar" placeholder="Search here...">
+                    <div class="filter">
+                        <img src="img/filter.png" alt="">
                     </div>
-                    <div class="card">
-                        <div class="images-cd">
-                            <img src="img/engine2.jpg" class="img" alt="">
-                        </div>
-                        <div class="textarea">
-                            <h3>Engine Failure</h3>
-                            <br>
-                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="images-cd">
-                            <img src="img/other.jpg" class="img" alt="">
-                        </div>
-                        <div class="textarea">
-                            <h3>Others</h3>
-                            <br>
-                            <a href="mechanicPage.php"><button >MESSAGE</button></a>
-                           <!--<div class="button">
-                                <p>GO TO</p>
-                            </div>-->
-                        </div>
-                    </div>
+                </div>
+                <div class="mechanic-table" style="overflow-y:auto;">
+                    <table class="mechanic-all">
+                        <thead>
+                            <tr>
+                            <th style="font-size: 15px">Profile</th>
+                            <th style="font-size: 15px">Name</th>
+                            <th style="font-size: 15px">Specialization</th>
+                            <th style="font-size: 15px">Address</th>
+                            <th style="font-size: 15px">Rating</th>
+                            <th style="font-size: 15px">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                           
+                            $sql="SELECT * from mechanic WHERE mechAddress='$custAddress1' and Specialization='Car Mechanic'";
+							$query=$dbh->prepare($sql);
+
+							$query->execute();
+							$results=$query->fetchALL(PDO::FETCH_OBJ);
+
+							if($query->rowCount()>0)
+                            {
+ 							foreach($results as $result)   
+                            {   
+                                if($custAddress1==$custAddress1)
+                                {
+						    ?>
+                            <tr>
+                                <td>
+                                <img src="img/avatar.png" alt="avatar" width="35"class="img-thumbnail">
+                                </td>
+                                <td>
+                                <?php echo htmlentities($result->mechFirstname);?> <?php echo htmlentities($result->mechLastname);?>
+                                </td>
+                                <td>
+                                <?php echo htmlentities($result->Specialization);?>
+                                </td>
+                                <td>
+                                <?php echo htmlentities($result->mechAddress);?>
+                                </td>
+                                <td>
+                                5
+                                </td>
+                                <td>
+                                <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"><a  href="CarRequestPage.php?regeditid=<?php echo htmlentities($result->mechID)?>">Request</a></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <?php }}}?>
+                    </table>
                 </div>
             </div>
         </section>

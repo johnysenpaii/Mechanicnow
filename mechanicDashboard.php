@@ -1,5 +1,7 @@
 <?php
 session_start();
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
+$mechID1=$_SESSION['mechID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,89 +20,35 @@ session_start();
     
     <div class="master-container">
         <section>
-            <div class="container">
+        <form method= "POST">
+        <div class="container">
                 <h1 class="mdb">Customers Request</h1>
+        <?php
+              $sql="SELECT * from request WHERE mechID=$mechID1 and Status='Unaccepted'";
+              $query=$dbh->prepare($sql);
+              $query->execute();
+              $results=$query->fetchALL(PDO::FETCH_OBJ);
+
+              if($query->rowCount()>0)
+              {
+              foreach ($results as $result)
+              {
+                  if($mechID1==$mechID1)
+                  {
+
+        ?>
                 <div class="request-table">
                     <table class = "table-card">
                         <tr class = "row-card">
                             <td class= "data-card">
                                 <div class="td-card">
-                                    <h3>Jepriel Tibay</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, enim provident. Doloribus, nostrum?</p>
+                                    <h3><?php echo htmlentities($result->vOwnerName);?></h3>
+                                    <p><strong>Service Needed: </strong> <?php echo htmlentities($result->serviceType);?></p>
+                                    <p><strong>Vehicle Problem:</strong> <?php echo htmlentities($result->mechRepair);?></p>
+                                    <p><strong>Note:</strong> <?php echo htmlentities($result->specMessage);?></p>
+                                    <p><strong>Address:</strong> <?php echo htmlentities($result->custAddress);?></p>
                                     <div class="card-btn">
-                                        <button class="accept">Accept</button>
-                                        <button class="decline">Decline</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class = "row-card">
-                            <td class= "data-card">
-                                <div class="td-card">
-                                    <h3>Francis Patlingrao</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, enim provident. Doloribus, nostrum?</p>
-                                    <div class="card-btn">
-                                        <button class="accept">Accept</button>
-                                        <button class="decline">Decline</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class = "row-card">
-                            <td class= "data-card">
-                                <div class="td-card">
-                                    <h3>Francis Patlingrao</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, enim provident. Doloribus, nostrum?</p>
-                                    <div class="card-btn">
-                                        <button class="accept">Accept</button>
-                                        <button class="decline">Decline</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class = "row-card">
-                            <td class= "data-card">
-                                <div class="td-card">
-                                    <h3>Francis Patlingrao</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, enim provident. Doloribus, nostrum?</p>
-                                    <div class="card-btn">
-                                        <button class="accept">Accept</button>
-                                        <button class="decline">Decline</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class = "row-card">
-                            <td class= "data-card">
-                                <div class="td-card">
-                                    <h3>Francis Patlingrao</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, enim provident. Doloribus, nostrum?</p>
-                                    <div class="card-btn">
-                                        <button class="accept">Accept</button>
-                                        <button class="decline">Decline</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class = "row-card">
-                            <td class= "data-card">
-                                <div class="td-card">
-                                    <h3>Francis Patlingrao</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, enim provident. Doloribus, nostrum?</p>
-                                    <div class="card-btn">
-                                        <button class="accept">Accept</button>
-                                        <button class="decline">Decline</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class = "row-card">
-                            <td class= "data-card">
-                                <div class="td-card">
-                                    <h3>Francis Patlingrao</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, enim provident. Doloribus, nostrum?</p>
-                                    <div class="card-btn">
-                                        <button class="accept">Accept</button>
+                                        <button type="submit" name="submit" class="accept">Accept</button>
                                         <button class="decline">Decline</button>
                                     </div>
                                 </div>
@@ -108,7 +56,9 @@ session_start();
                         </tr>
                     </table>
                 </div>
+            <?php }}}?>
             </div>
+            </form>
         </section>
         <?php include('Mbootom-nav.php');?>
     </div>

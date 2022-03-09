@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
     <div class="master-container">
         <section>
             <form method="POST">
-        <?php //select transaction
+        <?php
               $regeditid=$_SESSION["custID"];
               $sql="SELECT * from customer WHERE custID=:regeditid";
               $query=$dbh->prepare($sql);

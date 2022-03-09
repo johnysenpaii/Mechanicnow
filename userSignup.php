@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
 if(isset($_POST['register']))
 {
     $custFirstname=$_POST['custFirstname'];
@@ -85,8 +85,8 @@ if(isset($_POST['register']))
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Stick+No+Bills:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Mechanic Now</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Mechanic Now | Sign Up</title>
+    <link rel="shortcut icon" type="x-icon" href="img/mechanicnowlogo.svg">
 </head>
 <body>
     <!-- <div class="signupcontent"> -->
