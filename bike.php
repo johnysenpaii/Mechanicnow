@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
+$custAddress1=$_SESSION['custAddress'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,11 +16,11 @@ include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
     <title>Mechanic Now</title>
 </head>
 <body>
-    <?php
+<?php
     include('Uheader.php');
     ?>
     
-    <div class="master-container">  
+    <div class="master-container">
         <section>
             <div class="container">
                 <center><h1>Available Bike Mechanics</h1></center>
@@ -35,33 +36,50 @@ include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
                             <tr>
                             <th style="font-size: 15px">Profile</th>
                             <th style="font-size: 15px">Name</th>
+                            <th style="font-size: 15px">Specialization</th>
+                            <th style="font-size: 15px">Address</th>
                             <th style="font-size: 15px">Rating</th>
                             <th style="font-size: 15px">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-							$sql = "SELECT * from mechanic";
+                           
+                            $sql="SELECT * from mechanic WHERE mechAddress='$custAddress1' and Specialization='Bicycle Mechanic'";
 							$query=$dbh->prepare($sql);
+
 							$query->execute();
 							$results=$query->fetchALL(PDO::FETCH_OBJ);
-							$cnt=1;
-							if($query->rowCount()>0){
- 							foreach($results as $result){
+
+							if($query->rowCount()>0)
+                            {
+ 							foreach($results as $result)   
+                            {   
+                                if($custAddress1==$custAddress1)
+                                {
 						    ?>
                             <tr>
                                 <td>
                                 <img src="img/avatar.png" alt="avatar" width="35"class="img-thumbnail">
                                 </td>
-                                <td><?php echo htmlentities($result->mechFirstname);?> <?php echo htmlentities($result->mechLastname);?>
+                                <td>
+                                <?php echo htmlentities($result->mechFirstname);?> <?php echo htmlentities($result->mechLastname);?>
                                 </td>
-                                <td></td>
+                                <td>
+                                <?php echo htmlentities($result->Specialization);?>
+                                </td>
+                                <td>
+                                <?php echo htmlentities($result->mechAddress);?>
+                                </td>
+                                <td>
+                                5
+                                </td>
                                 <td>
                                 <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"><a  href="BikeRequestPage.php?regeditid=<?php echo htmlentities($result->mechID)?>">Request</a></button>
                                 </td>
                             </tr>
                         </tbody>
-                        <?php $cnt=$cnt+1;}}?>
+                        <?php }}}?>
                     </table>
                 </div>
             </div>

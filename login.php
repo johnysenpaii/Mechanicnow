@@ -19,6 +19,7 @@ if(isset($_POST['Login']))
       $_SESSION['custID']=$results['custID'];
       $_SESSION['custFirstname']=$results['custFirstname'];
       $_SESSION['custLastname']=$results['custLastname'];
+      $_SESSION['custAddress']=$results['custAddress'];
       $_SESSION['Username']=$results['Username'];
       $_SESSION['Password']=$results['Password'];
       echo "<script type='text/javascript'>document.location='userDashboard.php';</script>";
@@ -38,6 +39,7 @@ if(isset($_POST['Login']))
       $_SESSION['mechID']=$results['mechID'];
       $_SESSION['mechFirstname']=$results['mechFirstname'];
       $_SESSION['mechLastname']=$results['mechLastname'];
+      $_SESSION['custAddress']=$results['custAddress'];
       $_SESSION['Username']=$results['Username'];
       $_SESSION['Password']=$results['Password'];
       echo "<script type='text/javascript'>document.location='mechanicDashboard.php';</script>";

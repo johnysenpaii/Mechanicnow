@@ -3,25 +3,40 @@ session_start();
 include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
 if(isset($_POST['send']))  
 {  
-$host="localhost";//host name  
-$username="root"; //database username  
-$word="";//database word  
-$db_name="mechanicnow";//database name  
-$tbl_name="request"; //table name  
+$host="localhost";
+$username="root"; 
+$word="";
+$db_name="mechanicnow"; 
+$tbl_name="request"; 
 $con=mysqli_connect("$host", "$username", "$word","$db_name")or die("cannot connect");//connection string  
 $mechName=$_POST['mechName']; 
+$Specialization=$_POST['Specialization'];
+$mechAddress=$_POST['mechAddress'];
+$custAddress=$_POST['custAddress'];
 $specMessage=$_POST['specMessage'];
 $checkbox1=$_POST['mechRepair'];  
+$vOwnerName=$_POST['vOwnerName'];
+$mechID=$_POST['mechID'];
 $chk=""; 
 $spec="";
 $mechN="";
+$vON="";
+$mID="";
+$Specl="";
+$mechAdd="";
+$custAdd="";
 foreach($checkbox1 as $chk1)  
    {  
-      $chk .= $chk1." ";
+      $chk .= $chk1.", ";
    } 
    $spec .= $specMessage;  
    $mechN .= $mechName;
-$in_ch=mysqli_query($con,"INSERT INTO request(mechName, specMessage, mechRepair) values ('$mechN' ,'$spec', '$chk')");  
+   $vON .= $vOwnerName;
+   $mID .= $mechID;
+   $Specl .= $Specialization;
+   $mechAdd .= $mechAddress;
+   $custAdd .= $custAddress;
+$in_ch=mysqli_query($con,"INSERT INTO request(mechName, vOwnerName, specMessage, mechRepair, serviceType, mechID, mechAddress, custAddress) values ('$mechN', '$vON' , '$spec', '$chk', '$Specl', '$mID', '$mechAdd', '$custAdd')");  
 if($in_ch==1)  
    {  
       echo'<script>alert("Request Sent Successfully")</script>';  
@@ -76,28 +91,37 @@ else
                 <label>Name: </label>
                 <input class="textin" type="text" name="mechName"  value="<?php echo htmlentities($result->mechFirstname);?> <?php echo htmlentities($result->mechLastname);?>" readonly required>
                 <br>
+                <label>Specialization: </label>
+                <input class="textin" type="text" name="Specialization"  value="<?php echo htmlentities($result->Specialization);?>" readonly required>
+                <br>
+                <label>Address: </label>
+                <input class="textin" type="text" name="mechAddress"  value="<?php echo htmlentities($result->mechAddress);?>" readonly required>
+                <br>
                 <label>Rating:</label>
                 <input class="textin" type="text" name="" placeholder="Rating here"  value="" readonly required>
                 <p></p>
+                <input hidden type="text" name="vOwnerName" value="<?php echo htmlentities($_SESSION["custFirstname"]); ?> <?php echo htmlentities($_SESSION["custLastname"]); ?>">
+                <input hidden type="text" name="custAddress" value="<?php echo htmlentities($_SESSION["custAddress"]); ?>">
+                <input hidden type="text" name="mechID" value="<?php echo htmlentities($result->mechID);?>">
             </div>
             <div class="mechanic-table" style="overflow-y:auto;">
                 <h3>Mechanical Problem</h3>
                 <br>
-                <input type="checkbox" name="tireRepair">
+                <input type="checkbox" name="mechRepair[]" value="Tire Repair">
                 <label>Tire Repair</label>
                 <p></p>
                 <br>
-                <input type="checkbox" name="tireRepair">
+                <input type="checkbox" name="mechRepair[]" value="Chain Loosening Repair">
                 <label>Chain Loosening Repair</label>
                 <p></p>
                 <br>
-                <input type="checkbox" name="tireRepair">
+                <input type="checkbox" name="mechRepair[]" value="Break Repair">
                 <label>Break Repair</label>
                 <p></p>
                 <br>
                 <label style="margin-left: 20px">Others Specify</label>
                 <br>
-                <textarea placeholder="Specify here..." name="tireRepair" style="padding: 30px; font-size: 12px; font-family: var(--ff-primary);"></textarea>
+                <textarea placeholder="Specify here..." name="specMessage" style="padding: 30px; font-size: 12px; font-family: var(--ff-primary);"></textarea>
                 <br>
                 <br>
                 <button name="send" value="send" style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px">Send</a></button>
@@ -125,5 +149,7 @@ else
     </div>
 
     <script src="js/main.js"></script>
+
+    
 </body>
 </html>
