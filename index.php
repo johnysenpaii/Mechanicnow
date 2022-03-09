@@ -12,13 +12,8 @@
     <link rel="shortcut icon" type="x-icon" href="img/mechanicnowlogo.svg">
 </head>
 <body>
-<<<<<<< HEAD
-    <header> 
-        <img src="img/mechanicnowlogo.svg" class="logo" alt="">
-=======
     <header>
         <a href="index.php"><img src="img/mechanicnowlogo.svg" class="logo" alt=""></a>
->>>>>>> userRequest
         <p>Mechanic Now</p>
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <nav>

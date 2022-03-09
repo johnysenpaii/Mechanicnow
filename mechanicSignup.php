@@ -105,9 +105,9 @@ if(isset($_POST['register']))
                         </div>
                         <select type="text" name="Specialization" class="textin" placeholder="Select Specialization..." required>
                             <div style="color: gray;"><option style="color: gray;" value="" disabled selected hidden>Select Specialization...</option></div>
-                            <option value="Diesel Mechanic">Motorcycle Repair</option>
-                            <option value="General Automotive Mechanic">Bicycle Repair</option>
-                            <option value="Break and Transmission Technician">Car Repair</option>    
+                            <option value="Motorcycle Mechanic">Motorcycle Mechanic</option>
+                            <option value="Bicycle Mechanic">Bicycle Mechanic</option>
+                            <option value="Car Mechanic">Car Mechanic</option>    
                         </select>
                         <input type="text" name="mechValidID" class="textin" placeholder="Attach Valid ID" required>
                         <h3>Account Information</h3>

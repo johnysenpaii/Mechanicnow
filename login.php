@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
+include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
 if(isset($_POST['Login']))
 {
     $Username=$_POST['Username'];
@@ -16,6 +16,7 @@ if(isset($_POST['Login']))
         $custID=$results['custID'];
         $custFirstname=$results['custFirstname'];
         $custLastname=$results['custLastname'];
+        $custAddress=$results['custAddress'];
         $attemptedUsername=$results['Username'];
         $hashedPwd=$results['Password'];
 
@@ -25,6 +26,7 @@ if(isset($_POST['Login']))
             $_SESSION['custID']=$custID;
             $_SESSION['custFirstname']=$custFirstname;
             $_SESSION['custLastname']=$custLastname;
+            $_SESSION['custAddress']=$custAddress;
             $_SESSION['Username']=$attemptedUsername;
             $_SESSION['Password']=$hashedPwd;
             echo "<script type='text/javascript'>document.location='userDashboard.php';</script>";
@@ -44,6 +46,7 @@ if(isset($_POST['Login']))
             $mechFirstname=$results1['mechFirstname'];
             $mechLastname=$results1['mechLastname'];
             $attemptedMUsername=$results1['Username'];
+            $mechAddress=$results1['mechAddress'];
             $hashedPwdM=$results1['Password'];
         
             $Password1=$_POST['Password'];
@@ -52,6 +55,7 @@ if(isset($_POST['Login']))
                 $_SESSION['mechID']=$mechID;
                 $_SESSION['mechFirstname']=$mechFirstname;
                 $_SESSION['mechLastname']=$mechLastname;
+                $_SESSION['mechAddress']=$mechAddress;
                 $_SESSION['Username']=$attemptedMUsername;
                 $_SESSION['Password']=$hashedPwdM;
                 echo "<script type='text/javascript'>document.location='mechanicDashboard.php';</script>";

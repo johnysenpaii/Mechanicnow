@@ -1,5 +1,5 @@
-<style><?php include('C:\xampp\htdocs\DEVGRU\Mechanicnow\css\style.css'); ?></style>
-<script><?php include('C:\xampp\htdocs\DEVGRU\Mechanicnow\js\main.js');?></script>
+<style><?php include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\css\style.css'); ?></style>
+<script><?php include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\js\main.js');?></script>
 <header><!--Uheader-->
     <img src="img/mechanicnowlogo.svg" class="logo" alt="">
     <ul class="topnav">

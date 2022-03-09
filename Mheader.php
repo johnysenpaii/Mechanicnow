@@ -171,22 +171,6 @@ textarea {
             <li><a onclick="myconfirm()">Logout</a></li>
 
         </ul>
-<<<<<<< HEAD
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <nav class="navstyle">
-            <ul>
-                <li><a href="mechanicDashboard.php">Welcome DODO</a></li>
-                <!-- <li><a href="mechanicDashboard.php">Welcome <?php echo htmlentities($_SESSION["Username"]);?></a></li> -->
-                <li><a href="">Notifications</a></li>
-                <li><a href="">Settings</a></li>
-                <li><a href ="mechanicProfile.php">Profile</a></li>
-            </ul>
-        </nav>
-        <label for="nav-toggle" class="nav-toggle-label">
-            <span></span>
-        </label>
-    </header>
-=======
     </nav>
     <section>
         <form action="">
@@ -241,4 +225,3 @@ function myconfirm() {
     }
 }
 </script>
->>>>>>> 893dbec2b13bcf9ac796cf0e887358da99ac498a

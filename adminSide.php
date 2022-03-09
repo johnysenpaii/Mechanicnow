@@ -1,10 +1,6 @@
 <?php
 session_start();
-<<<<<<< HEAD
-include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
-=======
 include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
->>>>>>> userRequest
 
 ?>
 <!DOCTYPE html>
