@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\Mechanicnow\config.php');
 $mechID1=$_SESSION['mechID'];
 ?>
 <!DOCTYPE html>
