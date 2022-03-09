@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\MechanicNow\config.php');
 if(isset($_POST['Login']))
 {
     $Username=$_POST['Username'];

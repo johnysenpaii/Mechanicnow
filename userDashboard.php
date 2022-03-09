@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\MechanicNow\config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

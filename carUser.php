@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\Mechanicnow\config.php');
 $custAddress1=$_SESSION['custAddress'];
 ?>
 <!DOCTYPE html>
