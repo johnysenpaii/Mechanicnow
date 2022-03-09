@@ -1,136 +1,37 @@
-<style>
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    padding: 12px 16px;
-    z-index: 1;
-    width: 300px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* use reverse flexbox to take advantage of flex-direction: reverse */
-.star-rating {
-    display: flex;
-    align-items: center;
-    width: 160px;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    margin: 40px auto;
-    position: relative;
-}
-
-/* hide the inputs */
-.star-rating input {
-    display: none;
-}
-
-/* set properties of all labels */
-.star-rating>label {
-    width: 30px;
-    height: 30px;
-    font-family: Arial;
-    font-size: 30px;
-    transition: 0.2s ease;
-    color: orange;
-}
-
-/* give label a hover state */
-.star-rating label:hover {
-    color: #ff69b4;
-    transition: 0.2s ease;
-}
-
-.star-rating label:active::before {
-    transform: scale(1.1);
-}
-
-/* set shape of unselected label */
-.star-rating label::before {
-    content: '\2606';
-    position: absolute;
-    top: 0px;
-    line-height: 26px;
-}
-
-/* set full star shape for checked label and those that come after it */
-.star-rating input:checked~label:before {
-    content: '\2605';
-}
-
-@-moz-document url-prefix() {
-    .star-rating input:checked~label:before {
-        font-size: 36px;
-        line-height: 21px;
-    }
-}
-
-.modal-content {
-    display: flex;
-    align-items: center;
-}
-
-textarea {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 20;
-}
-
-.text1 {
-    text-align: start;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-/* Create two equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 25%;
-    padding: auto;
-    height: auto;
-    /* Should be removed. Only for demonstration */
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-</style>
-<header class="Uheader">
+<style><?php include('C:\xampp\htdocs\DEVGRU\Mechanicnow\css\style.css'); ?></style>
+<script><?php include('C:\xampp\htdocs\DEVGRU\Mechanicnow\js\main.js');?></script>
+<header><!--Uheader-->
     <img src="img/mechanicnowlogo.svg" class="logo" alt="">
     <ul class="topnav">
+        <li><a href="userDashboard.php">Message</a></li>
         <li><a href="userDashboard.php">Home</a></li>
         <li><a href="mechanicPage.php">Mechanic</a></li>
     </ul>
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav class="navstyle">
         <ul>
-            <li><a href="">Welcome <?php echo htmlentities($_SESSION["Username"]); ?></a></li>
-            <li><a href="">
+            <li><a class="headlogo" href="userProfile.php">
+                <div class="h-logo"><img src="img/user.png" alt=""> </div>
+                <?php echo htmlentities($_SESSION["Username"]); ?></a></li>
+            <li><a class="headlogo" href="">
+                    <div class="h-logo"><img src="img/bell.png" alt=""> </div>
                     <div class="dropdown">
-                        <span>Notifications</span>
-                        <div class="dropdown-content">
+                        <text>Notifications</text>
+                        <!-- <div class="dropdown-content">
                             <div class=""> New Update!</div>
-                            <div class=""> Plaese rate us.</div>
+                            <div class=""> Please rate us.</div>
                             <div class=""> Got any Problem?</div>
-                        </div>
+                        </div> -->
                     </div>
-                </a></li>
-            <li><a href="">Settings</a></li>
-            <li><a href="">
+                </a>
+            </li>
+            <li>
+                <a class="headlogo" href="">
+                   <div class="h-logo"><img src="img/settings.png" alt=""> </div>
+                    <text>Settings</text>
+                </a>
+            </li>
+            <!-- <li><a href="">    
                     <div class="dropdown">
                         <span>History</span>
                         <div class="dropdown-content">
@@ -165,20 +66,28 @@ textarea {
                             </div>
                         </div>
                     </div>
-                </a></li>
-            <li><a href="userProfile.php">Profile</a></li>
-            <li><span>
+                </a>
+            </li> -->
+            <!-- <li>
+                <a class="headlogo" href="userProfile.php">
+                    <div class="h-logo"><img src="img/user.png" alt=""> </div>
+                    <text>Profile</text>
+                </a>
+            </li> -->
+            <!-- <li><span>
                     <div id="myBtn"><a>Send Feedbacks</a></div>
-                </span></li>
+                </span>
+            </li> -->
 
             <li><a onclick="myconfirm()">Logout</a></li>
 
         </ul>
     </nav>
-    <section>
+    <!-- <section>
+        This section is for the feedback
         <form action="">
             <div id="myModal" class="modal">
-                <!-- Modal content -->
+                Modal Content
                 <div class="modal-content">
                     <div class="row">
                         <span class="close">&times;</span>
@@ -213,7 +122,8 @@ textarea {
         </div>
 
 
-    </section>
+    </section> -->
+    <!-- kani na label kay para mobile responsive toggle -->
     <label for="nav-toggle" class="nav-toggle-label">
         <span></span>
     </label>

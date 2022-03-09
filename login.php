@@ -1,51 +1,89 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
 if(isset($_POST['Login']))
 {
     $Username=$_POST['Username'];
-    $Password=$_POST['Password']; //hashedpwd
+    
     //$valid = password_verify($input, $Password); //1 or 0
-
-    $sql="SELECT * FROM customer WHERE Username=:Username AND Password=:Password";
-    $query=$dbh->prepare($sql);
+    $sql1 = "SELECT * FROM customer WHERE Username=:Username AND role='vehicleOwner'";
+    $query=$dbh->prepare($sql1);
     $query->bindParam(':Username',$Username,PDO::PARAM_STR);
-    $query->bindParam(':Password',$Password,PDO::PARAM_STR);
     $query->execute();
     $results=$query->fetch(PDO::FETCH_ASSOC);
-    if($query->rowCount()>0)
-    {
-      session_regenerate_id();
-      $_SESSION['custID']=$results['custID'];
-      $_SESSION['custFirstname']=$results['custFirstname'];
-      $_SESSION['custLastname']=$results['custLastname'];
-      $_SESSION['Username']=$results['Username'];
-      $_SESSION['Password']=$results['Password'];
-      echo "<script type='text/javascript'>document.location='userDashboard.php';</script>";
+    if($query->rowCount() == 1){
+        $query->fetch(PDO::FETCH_ASSOC);
+        $custID=$results['custID'];
+        $custFirstname=$results['custFirstname'];
+        $custLastname=$results['custLastname'];
+        $attemptedUsername=$results['Username'];
+        $hashedPwd=$results['Password'];
+
+        $Password=$_POST['Password'];
+        if(password_verify($Password, $hashedPwd) == 1){
+            session_regenerate_id();
+            $_SESSION['custID']=$custID;
+            $_SESSION['custFirstname']=$custFirstname;
+            $_SESSION['custLastname']=$custLastname;
+            $_SESSION['Username']=$attemptedUsername;
+            $_SESSION['Password']=$hashedPwd;
+            echo "<script type='text/javascript'>document.location='userDashboard.php';</script>";
+        }else{
+           echo '<script>alert("Oops! Username and Password mismatch!")</script>';
+        }
+    }else{
+        //echo '<script>alert("User not found!")</script>';
+        $sql="SELECT * FROM mechanic WHERE Username=:Username AND role='MECHANIC'";
+        $query1=$dbh->prepare($sql);
+        $query1->bindParam(':Username',$Username,PDO::PARAM_STR);
+        $query1->execute();
+        $results1=$query1->fetch(PDO::FETCH_ASSOC);
+        if($query1->rowCount() == 1){
+            $query1->fetch(PDO::FETCH_ASSOC);
+            $mechID=$results1['mechID'];
+            $mechFirstname=$results1['mechFirstname'];
+            $mechLastname=$results1['mechLastname'];
+            $attemptedMUsername=$results1['Username'];
+            $hashedPwdM=$results1['Password'];
+        
+            $Password1=$_POST['Password'];
+            if(password_verify($Password1, $hashedPwdM) == 1){
+                session_regenerate_id();
+                $_SESSION['mechID']=$mechID;
+                $_SESSION['mechFirstname']=$mechFirstname;
+                $_SESSION['mechLastname']=$mechLastname;
+                $_SESSION['Username']=$attemptedMUsername;
+                $_SESSION['Password']=$hashedPwdM;
+                echo "<script type='text/javascript'>document.location='mechanicDashboard.php';</script>";
+            }else{
+            echo '<script>alert("Oops! Username and Password mismatch!")</script>';
+            }
+        }else{
+            //echo '<script>alert("User not found!")</script>';
+            $Password=$_POST['Password'];
+            $sql="SELECT * FROM admin WHERE Username=:Username AND Password=:Password AND role='admin'";
+            $query=$dbh->prepare($sql);
+            $query->bindParam(':Username',$Username,PDO::PARAM_STR);
+            $query->bindParam(':Password',$Password,PDO::PARAM_STR);
+            $query->execute();
+            $results=$query->fetch(PDO::FETCH_ASSOC);
+            if($query->rowCount()>0)
+            {
+            session_regenerate_id();
+            $_SESSION['Username']=$results['Username'];
+            $_SESSION['Password']=$results['Password'];
+            echo "<script type='text/javascript'>alert('Welcome Admin!!');</script>";
+            echo "<script type='text/javascript'>document.location='adminSide.php';</script>";
+            }
+            else{
+                echo "<script type='text/javascript'>alert('User not Found!');</script>";
+            }
+        }
     }
 
     
-
-    $sql="SELECT * FROM mechanic WHERE Username=:Username AND Password=:Password";
-    $query=$dbh->prepare($sql);
-    $query->bindParam(':Username',$Username,PDO::PARAM_STR);
-    $query->bindParam(':Password',$Password,PDO::PARAM_STR);
-    $query->execute();
-    $results=$query->fetch(PDO::FETCH_ASSOC);
-    if($query->rowCount()>0)
-    {
-      session_regenerate_id();
-      $_SESSION['mechID']=$results['mechID'];
-      $_SESSION['mechFirstname']=$results['mechFirstname'];
-      $_SESSION['mechLastname']=$results['mechLastname'];
-      $_SESSION['Username']=$results['Username'];
-      $_SESSION['Password']=$results['Password'];
-      echo "<script type='text/javascript'>document.location='mechanicDashboard.php';</script>";
-      
-    }
-
-   
-}
+    
+} 
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +139,6 @@ if(isset($_POST['Login']))
         <div class="testing">
             
         </div>
-
 
     </section>
 

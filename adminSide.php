@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
 
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
         integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <!-- custom css -->
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>

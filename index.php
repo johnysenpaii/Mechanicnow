@@ -12,7 +12,7 @@
     <link rel="shortcut icon" type="x-icon" href="img/mechanicnowlogo.svg">
 </head>
 <body>
-    <header>
+    <header> 
         <img src="img/mechanicnowlogo.svg" class="logo" alt="">
         <p>Mechanic Now</p>
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
