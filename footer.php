@@ -1,4 +1,9 @@
-<footer class="bg-dark text-center text-light py-4 fixed-bottom">
-    
-<p >© 2021 Mechanic Now.</p>
+<footer>
+<div class="footer-header">
+    <div class="footer-logo"><img src="img/footerlogo.png" alt=""></div>
+    <h3 class="mechanicnowtitle">Mechanic Now</h3>
+</div>
+<div class="credits">
+    <p>© 2021 Mechanic Now.</p>
+</div>
 </footer>

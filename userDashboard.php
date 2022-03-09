@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+include('C:\xampp\htdocs\DEVGRU\Mechanicnow\config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,17 +61,18 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
             </div>
         </section>
         
-        <!-- <div class="bottom-nav">
+        <div class="bottom-nav">
             <div class="vehicle-logo">
-                <a href="userDashboard.html"><img src="img/steering-wheel2.png" alt=""></a>
+                <!-- Message -->
+                <a href="userMessage.php"><img src="img/message.png" alt=""></a>
             </div>
             <div class="home-logo">
-                <a href="userDashboard.html"><img src="img/house-black-silhouette-without-door.png" alt=""></a>
+                <a href="userDashboard.php"><img src="img/house-black-silhouette-without-door.png" alt=""></a>
             </div>
             <div class="mech-logo">
-                <a href="mechanicPage.html"><img src="img/mechtool.png" alt=""></a>
+                <a href="mechanicPage.php"><img src="img/mechtool.png" alt=""></a>
             </div>
-        </div> -->
+        </div>
         <?php
         include('bottom-nav.php');
         ?>
