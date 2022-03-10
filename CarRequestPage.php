@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('C:\xampp\htdocs\Mechanicnow\config.php');
+$custID1=$_SESSION['custID'];
 if(isset($_POST['send']))  
 {  
 $host="localhost";
@@ -16,6 +17,7 @@ $custAddress=$_POST['custAddress'];
 $specMessage=$_POST['specMessage'];
 $checkbox1=$_POST['mechRepair'];  
 $vOwnerName=$_POST['vOwnerName'];
+$service=$_POST['service'];
 $mechID=$_POST['mechID'];
 $chk=""; 
 $spec="";
@@ -25,6 +27,7 @@ $mID="";
 $Specl="";
 $mechAdd="";
 $custAdd="";
+$serv="";
 foreach($checkbox1 as $chk1)  
    {  
       $chk .= $chk1.", ";
@@ -36,10 +39,12 @@ foreach($checkbox1 as $chk1)
    $Specl .= $Specialization;
    $mechAdd .= $mechAddress;
    $custAdd .= $custAddress;
-$in_ch=mysqli_query($con,"INSERT INTO request(mechName, vOwnerName, specMessage, mechRepair, serviceType, mechID, mechAddress, custAddress) values ('$mechN', '$vON' , '$spec', '$chk', '$Specl', '$mID', '$mechAdd', '$custAdd')");  
+   $serv .= $service;
+$in_ch=mysqli_query($con,"INSERT INTO request(mechName, vOwnerName, specMessage, mechRepair, serviceType, ServiceN, mechID, custID, mechAddress, custAddress) values ('$mechN', '$vON' , '$spec', '$chk', '$Specl', '$serv', '$mID', '$custID1', '$mechAdd', '$custAdd')");  
 if($in_ch==1)  
    {  
-      echo'<script>alert("Request Sent Successfully")</script>';  
+    echo'<script>alert("Request Sent Successfully, Wait for Mechanic to Confirm!")</script>';  
+    echo"<script>location.replace('monitorMechanicServices.php');</script>";  
    }  
 else  
    {  
@@ -107,6 +112,12 @@ else
             <div class="mechanic-table" style="overflow-y:auto;">
                 <h3>Mechanical Problem</h3>
                 <br>
+                <label>Home Service</label>
+                <input type="radio" value="Home Service" name="service">
+                <label>Emergency Service</label>
+                <input type="radio" value="Emergency" name="service">
+                <p></p>
+                <br>
                 <input type="checkbox" name="mechRepair[]" value="Tire Repair">
                 <label>Tire Repair</label>
                 <p></p>
@@ -132,7 +143,7 @@ else
                 <textarea placeholder="Specify here..." name="specMessage" value="specMessage" style="padding: 30px; font-size: 12px; font-family: var(--ff-primary);"></textarea>
                 <br>
                 <br>
-                <button name="send" value="send" style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"> Send</a></button>
+                <button name="send" value="send" style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px"> Send</button>
                 <button style="color: rgb(156, 28, 150); border-radius: 8%; padding: 10px; font-size: 16px; margin-left: 40px;"><a  href="carUSer.php">Cancel</a></button>
             </div>
             </div>
@@ -156,7 +167,9 @@ else
         ?>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js">
+         
+    </script>
 
     
 </body>

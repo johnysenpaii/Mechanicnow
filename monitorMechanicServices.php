@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('C:\xampp\htdocs\Mechanicnow\config.php');
-$mechID1=$_SESSION['mechID'];
+$custID1=$_SESSION['custID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,15 +16,15 @@ $mechID1=$_SESSION['mechID'];
     <title>Mechanic Now</title>
 </head>
 <body>
-    <?php include('Mheader.php');?>
+    <?php include('Uheader.php');?>
     
     <div class="master-container">
         <section>
         <form method= "POST">
         <div class="container">
-                <h1 class="mdb">Customers Request</h1>
+                <h1 class="mdb">Monitor Ongoing Service</h1>
         <?php
-              $sql="SELECT * from request WHERE mechID=$mechID1 and Status='Unaccepted'";
+              $sql="SELECT * from request WHERE custID=$custID1 and Status='Unaccepted' order by resID DESC";
               $query=$dbh->prepare($sql);
               $query->execute();
               $results=$query->fetchALL(PDO::FETCH_OBJ);
@@ -33,7 +33,7 @@ $mechID1=$_SESSION['mechID'];
               {
               foreach ($results as $result)
               {
-                  if($mechID1==$mechID1)
+                  if($custID1==$custID1)
                   {
 
         ?>
@@ -42,15 +42,13 @@ $mechID1=$_SESSION['mechID'];
                         <tr class = "row-card">
                             <td class= "data-card">
                                 <div class="td-card">
-                                    <h3><?php echo htmlentities($result->vOwnerName);?></h3>
-                                    <p><strong>Service Type: </strong> <?php echo htmlentities($result->serviceType);?></p>
-                                    <p><strong>Service Needed: </strong> <?php echo htmlentities($result->ServiceN);?></p>
-                                    <p><strong>Vehicle Problem:</strong> <?php echo htmlentities($result->mechRepair);?></p>
-                                    <p><strong>Note:</strong> <?php echo htmlentities($result->specMessage);?></p>
+                                    <h3><?php echo htmlentities($result->mechName);?></h3>
+                                    <p><strong>Description : </strong> <?php echo htmlentities($result->mechRepair);?></p>
+                                    <p id="status" ><strong>Status: </strong> <?php echo htmlentities($result->Status);?></p>
+                                    <p><strong>Specific Message:</strong> <?php echo htmlentities($result->specMessage);?></p>
                                     <p><strong>Address:</strong> <?php echo htmlentities($result->custAddress);?></p>
                                     <div class="card-btn">
-                                        <button type="submit" name="submit" class="accept">Accept</button>
-                                        <button class="decline">Decline</button>
+                                        <button type="submit" name="submit" id="message" class="accept">Message</button>
                                     </div>
                                 </div>
                             </td>
@@ -64,6 +62,12 @@ $mechID1=$_SESSION['mechID'];
         <?php include('Mbootom-nav.php');?>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js">
+        var status = document.getElementById('status');
+        if(status == 'Unaccepted')
+        {
+            document.getElementById("message").disable;      
+        }
+    </script>
 </body>
 </html>
