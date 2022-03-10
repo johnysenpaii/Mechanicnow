@@ -83,7 +83,7 @@
                 <li>About Us</li>
             </ul>
             <div class="signupfooter">
-                <h4 class="signup-button-footer"><a href="userSignup.html">Sign Up</a></h4>
+                <h4 class="signup-button-footer"><a href="userSignup.php">Sign Up</a></h4>
             </div>
             <div class="credits">
                 <p>© 2021 Mechanic Now.</p>
