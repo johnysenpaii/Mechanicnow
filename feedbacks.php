@@ -53,11 +53,16 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                                                 class="bi bi-person-circle"></i> Clients</a></li>
                                     <li><a href="mechAdmin.php" class="dropdown-item pl-4 p-2"><i
                                                 class="bi bi-tools"></i> Mechanics</a></li>
+                                    <li><a href="banlist.php" class="dropdown-item pl-4 p-2"><i
+                                                class="bi bi-exclamation-circle-fill"></i> Banned Mechanics</a></li>
+                                                <li><a href="userbanlist.php" class="dropdown-item pl-4 p-2"><i
+                                                class="bi bi-exclamation-circle-fill"></i> Banned Clients</a></li>
+
                                 </ul>
                             </li>
-        
+
                             <li class="nav-item dropdown w-100">
-                                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                <a href="#" class="nav-link dropdown-toggle active" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-expanded="false"><i class="bi bi-star-fill"></i>
                                     Feedbacks</a>
                                 <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
@@ -66,7 +71,10 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                                     <li><a href="mechfeedbacks.php" class="dropdown-item pl-4 p-2"><i
                                                 class="bi bi-tools"></i> Mechanics</a></li>
                                 </ul>
-    
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="Report.php" class="nav-link"><i class="bi bi-list-columns"></i> Reports</a>
                             </li>
                             <br>
                             <hr class="text-light m-1">
@@ -87,12 +95,16 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                             <div class="card">
                                 <h5 class="card-header"><img src="img/avatar.png" alt="avatar" width="35"
                                         class="img-thumbnail"> Jepriel Tibay <i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i></h5>
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></h5>
                                 <div class="card-body">
                                     <h5 class="card-title">Great!!</h5>
-                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, ducimus dolores. Consequatur odio consectetur qui mollitia in earum placeat neque nam maxime totam aut odit veritatis laboriosam facilis, quaerat unde?</p>
-                                    <a href="#" class="btn btn-primary btn-sm">Reply <i class="bi bi-reply-fill"></i></a> <i class="bi bi-hand-thumbs-up-fill"></i>
+                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                        Voluptatibus, ducimus dolores. Consequatur odio consectetur qui mollitia in
+                                        earum placeat neque nam maxime totam aut odit veritatis laboriosam facilis,
+                                        quaerat unde?</p>
+                                    <a href="#" class="btn btn-primary btn-sm">Reply <i
+                                            class="bi bi-reply-fill"></i></a> <i class="bi bi-hand-thumbs-up-fill"></i>
 
                                 </div>
                             </div>
@@ -101,11 +113,16 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                             <div class="card">
                                 <h5 class="card-header"><img src="img/avatar.png" alt="avatar" width="35"
                                         class="img-thumbnail"> John Jalosjos <i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></h5>
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></h5>
                                 <div class="card-body">
                                     <h5 class="card-title">Nice!!</h5>
-                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, ducimus dolores. Consequatur odio consectetur qui mollitia in earum placeat neque nam maxime totam aut odit veritatis laboriosam facilis, quaerat unde?</p>
-                                    <a href="#" class="btn btn-primary btn-sm">Reply <i class="bi bi-reply-fill"></i></a> <i class="bi bi-hand-thumbs-up-fill"></i>
+                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                        Voluptatibus, ducimus dolores. Consequatur odio consectetur qui mollitia in
+                                        earum placeat neque nam maxime totam aut odit veritatis laboriosam facilis,
+                                        quaerat unde?</p>
+                                    <a href="#" class="btn btn-primary btn-sm">Reply <i
+                                            class="bi bi-reply-fill"></i></a> <i class="bi bi-hand-thumbs-up-fill"></i>
 
                                 </div>
                             </div>

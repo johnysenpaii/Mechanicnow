@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+include('config.php');
 
 ?>
 <!DOCTYPE html>
@@ -13,8 +13,7 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
     <!-- bootstrap 5 css -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
-        integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.min.css">
     <!-- custom css -->
     <link rel="stylesheet" href="style2.css">
 </head>
@@ -53,6 +52,10 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                                                 class="bi bi-person-circle"></i> Clients</a></li>
                                     <li><a href="mechAdmin.php" class="dropdown-item pl-4 p-2"><i
                                                 class="bi bi-tools"></i> Mechanics</a></li>
+                                    <li><a href="banlist.php" class="dropdown-item pl-4 p-2"><i
+                                                class="bi bi-exclamation-circle-fill"></i> Banned Mechanics</a></li>
+                                    <li><a href="userbanlist.php" class="dropdown-item pl-4 p-2"><i
+                                                class="bi bi-exclamation-circle-fill"></i> Banned Clients</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown w-100">
@@ -67,52 +70,167 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
                                 </ul>
 
                             </li>
+                            <li class="nav-item">
+                                <a href="Report.php" class="nav-link"><i class="bi bi-list-columns"></i> Reports</a>
+                            </li>
                             <br>
-                            <hr class="text-light m-1">
+                            <hr class="text-light w-100 p-0 m-0">
                             <li class="nav-item w-100">
                                 <a onclick="myconfirm()" class="nav-link text-danger"><i class="bi bi-door-closed"></i>
                                     Logout</a>
                             </li>
                         </ul>
                     </div>
+
                 </nav>
             </aside>
-            <main class="col px-0 flex-grow-1">
-                <div class="container py-3">
-                    <section class="my-container">
-                        <div class="display-6 my-2">Dashboard</div>
-                        <hr class="text-dark m-2">
-                        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" data-aos="fade-up">
-                            <div class="col-md-12 col-sm-12 mx-4">
-                                <div class="card m-0 shadow border border-info " style="width: 18rem;">
-                                    <div class="card-body">
-                                        <h6 class="card-title text-muted">Vehicle Owner</h6>
-                                        <p class="card-text display-6 float-right">2</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 mx-4">
-                                <div class="card m-0 shadow border border-info" style="width: 18rem;">
-                                    <div class="card-body">
-                                        <h6 class="card-title text-muted">Mechanics</h6>
-                                        <p class="card-text display-6 float-right">0</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 mx-4">
-                                <div class="card m-0 shadow border border-info" style="width: 18rem;">
-                                    <div class="card-body">
-                                        <h6 class="card-title text-muted">Banned</h6>
-                                        <p class="card-text display-6 float-right">0</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="line-chart-filled"></div>
-                    </section>
+            <main class="col flex-grow-1">
+                <div class="container py-2">
+                    <div class="row d-flex justify-content-">
+                        <div class="col h5">Dashboard</div>
+                        <div class="col-1 h5 text-center text-dark">
+                        
+                            <i class="bi bi-bell-fill"></i>
+                          </div>
+                        <hr class="text-dark">
+                    </div>
                 </div>
-            </main>
+
+                <div class="row g-3 d-flex justify-content-center " data-aos="fade-up">
+                    <div class="col-lg-2 col-md-12 col-sm-12  ">
+                        <div class="card m-0 shadow border border-primary h-100 ">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted"><i class="bi bi-person-circle"></i>
+                                    Vehicle
+                                    Owner</h6>
+                                <?php 
+											$sql3 ="SELECT custID from customer";
+											$query3 = $dbh -> prepare($sql3);
+											$query3->execute();
+											$results3=$query3->fetchAll(PDO::FETCH_OBJ);
+											$userlist=$query3->rowCount();
+										?>
+                                <p class="card-text display-6 float-right">
+                                    <?php echo htmlentities($userlist);?>
+                                </p>
+                            </div>
+                            <a href="userAdmin.php" class="btn btn-primary bnt-lg m-1">Check</a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-12 col-sm-12  ">
+                        <div class="card m-0 shadow border border-primary h-100">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted"><i class="bi bi-tools"></i> Mechanics</h6>
+                                <?php 
+											$sql3 ="SELECT mechID from mechanic where status ='approve' ";
+											$query3 = $dbh -> prepare($sql3);
+											$query3->execute();
+											$results3=$query3->fetchAll(PDO::FETCH_OBJ);
+											$mechlist=$query3->rowCount();
+										?>
+                                <p class="card-text display-6 float-right">
+                                    <?php echo htmlentities($mechlist);?>
+                                </p>
+                            </div>
+                            <a href="mechAdmin.php" class="btn btn-primary bnt-lg m-1">Check</a>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-12 col-sm-12">
+                        <div class="card m-0 shadow border border-primary h-100 position-relative">
+                            <span id="hide"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                <?php 
+											$sql3 ="SELECT mechID from mechanic where status ='pending' ";
+											$query3 = $dbh -> prepare($sql3);
+											$query3->execute();
+											$results3=$query3->fetchAll(PDO::FETCH_OBJ);
+											$newlist=$query3->rowCount();
+                                            if($newlist == 0){
+                                                echo "<script type='text/javascript'>document.getElementById('hide').style.display = 'none';
+                                                </script>";
+
+                                            }
+										?>
+                                <?php echo htmlentities($newlist);?>
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                            <div class="card-body">
+                                <h6 class="card-title text-muted"><i class="bi bi-person-plus-fill"></i>
+                                    Pending
+                                    Mechanic</h6>
+                                <p class="card-text display-6 float-right">
+                                    <?php echo htmlentities($newlist);?>
+                                </p>
+                            </div>
+                            <a href="pending.php" class="btn btn-primary bnt-lg m-1">Check</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-12 col-sm-12">
+                        <div class="card m-0 shadow border border-primary h-100 position-relative">
+                            <span id="mhide"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                <?php 
+											$sql3 ="SELECT mechID from mechanic where status ='banned' ";
+											$query3 = $dbh -> prepare($sql3);
+											$query3->execute();
+											$results3=$query3->fetchAll(PDO::FETCH_OBJ);
+											$ban1=$query3->rowCount();
+                                            if($ban1 == 0){
+                                                echo "<script type='text/javascript'>document.getElementById('mhide').style.display = 'none';
+                                                </script>";
+
+                                            }
+										?>
+                                <?php echo htmlentities($ban1);?>
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                            <div class="card-body">
+                                <h6 class="card-title text-muted"><i class="bi bi-exclamation-circle-fill"></i>
+                                    Banned Mechanic</h6>
+                                <p class="card-text display-6 float-right"><?php echo htmlentities($ban1);?>
+                                </p>
+                            </div>
+                            <a href="banlist.php" class="btn btn-primary bnt-lg m-1">Check</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-12 col-sm-12">
+                        <div class="card m-0 shadow border border-primary h-100 position-relative">
+                            <span id="hide"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                <?php 
+											$sql3 ="SELECT custID from customer where ban ='banned' ";
+											$query3 = $dbh -> prepare($sql3);
+											$query3->execute();
+											$results3=$query3->fetchAll(PDO::FETCH_OBJ);
+											$userban=$query3->rowCount();
+                                            if($userban == 0){
+                                                echo "<script type='text/javascript'>document.getElementById('hide').style.display = 'none';
+                                                </script>";
+
+                                            }
+										?>
+                                <?php echo htmlentities($userban);?>
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                            <div class="card-body">
+                                <h6 class="card-title text-muted"><i class="bi bi-exclamation-circle-fill"></i>
+                                    Banned Customer</h6>
+                                <p class="card-text display-6 float-right">
+                                    <?php echo htmlentities($userban);?>
+                                </p>
+                            </div>
+                            <a href="userbanlist.php" class="btn btn-primary bnt-lg m-1">Check</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="line-chart-filled"></div>
         </div>
+        </main>
+    </div>
     </div>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"

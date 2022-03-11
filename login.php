@@ -4,16 +4,17 @@ include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
 if(isset($_POST['Login']))
 {
     $Username=$_POST['Username'];
-    $Password=$_POST['Password']; //hashedpwd
+    $Password=$_POST['Password'];
+     //hashedpwd
     //$valid = password_verify($input, $Password); //1 or 0
 
-    $sql="SELECT * FROM customer WHERE Username=:Username AND Password=:Password";
+    $sql="SELECT * FROM customer WHERE Username=:Username AND Password=:Password AND ban='unban'";
     $query=$dbh->prepare($sql);
     $query->bindParam(':Username',$Username,PDO::PARAM_STR);
     $query->bindParam(':Password',$Password,PDO::PARAM_STR);
     $query->execute();
     $results=$query->fetch(PDO::FETCH_ASSOC);
-    if($query->rowCount()>0)
+    if($ban='unban' && $query->rowCount()>0)
     {
       session_regenerate_id();
       $_SESSION['custID']=$results['custID'];
@@ -21,27 +22,40 @@ if(isset($_POST['Login']))
       $_SESSION['custLastname']=$results['custLastname'];
       $_SESSION['Username']=$results['Username'];
       $_SESSION['Password']=$results['Password'];
+      echo "<script type='text/javascript'>alert('Login Success');</script>";
       echo "<script type='text/javascript'>document.location='userDashboard.php';</script>";
+    }
+    else{
+        echo "<script type='text/javascript'>alert('Your account has been banned and Please check your email');</script>";
+
     }
 
     
 
-    $sql="SELECT * FROM mechanic WHERE Username=:Username AND Password=:Password";
+    $sql="SELECT * FROM mechanic WHERE Username=:Username AND Password=:Password AND status='approve'";
     $query=$dbh->prepare($sql);
     $query->bindParam(':Username',$Username,PDO::PARAM_STR);
-    $query->bindParam(':Password',$Password,PDO::PARAM_STR);
+    $query->bindParam(':Password',$Password,PDO::PARAM_STR); 
     $query->execute();
     $results=$query->fetch(PDO::FETCH_ASSOC);
-    if($query->rowCount()>0)
+    if($status='approve' && $query->rowCount()>0)
     {
+   
       session_regenerate_id();
       $_SESSION['mechID']=$results['mechID'];
       $_SESSION['mechFirstname']=$results['mechFirstname'];
       $_SESSION['mechLastname']=$results['mechLastname'];
       $_SESSION['Username']=$results['Username'];
       $_SESSION['Password']=$results['Password'];
+      $_SESSION['status']=$results['status'];
+      echo "<script type='text/javascript'>alert('Login Success');</script>";
       echo "<script type='text/javascript'>document.location='mechanicDashboard.php';</script>";
       
+      
+    }
+    else
+    {
+        echo "<script type='text/javascript'>alert('Wait for your approval or your account has been banned and Please check your email');</script>";
     }
 
    

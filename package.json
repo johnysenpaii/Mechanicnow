@@ -1,0 +1,22 @@
+{
+  "name": "mechanicnow",
+  "version": "1.0.0",
+  "description": "Mao ni ang atong repository para sa mechanicnow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnysenpaii/Mechanicnow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnysenpaii/Mechanicnow/issues"
+  },
+  "homepage": "https://github.com/johnysenpaii/Mechanicnow#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
