@@ -1,7 +1,16 @@
 <?php
 session_start();
 include('C:\xampp\htdocs\Mechanicnow\config.php');
-$custID1=$_SESSION['custID'];
+if(isset($_POST['sendMessage']))
+{
+    $regeditid=intval($_GET['regeditid']);
+    $sql="UPDATE request set Status='Accepted' where resID=:regeditid";
+    $query=$dbh->prepare($sql); 
+    $query->bindParam(':regeditid',$regeditid,PDO::PARAM_STR); 
+    $query->execute();
+    echo"<script>location.replace('mechanicActivityLog.php');</script>";
+}
+$mechID1=$_SESSION['mechID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,58 +25,52 @@ $custID1=$_SESSION['custID'];
     <title>Mechanic Now</title>
 </head>
 <body>
-    <?php include('Uheader.php');?>
+    <?php include('Mheader.php');?>
     
     <div class="master-container">
         <section>
         <form method= "POST">
-        <div class="container">
-                <h1 class="mdb">Monitor Mechanic Services</h1>
         <?php
-              $sql="SELECT * from request WHERE custID=$custID1 and Status='Accepted' order by resID DESC";
+              $regeditid=intval($_GET['regeditid']);
+              $sql="SELECT * from request WHERE resID=:regeditid and Status='Unaccepted'";
               $query=$dbh->prepare($sql);
+              $query->bindParam(':regeditid',$regeditid,PDO::PARAM_STR);
               $query->execute();
               $results=$query->fetchALL(PDO::FETCH_OBJ);
 
               if($query->rowCount()>0)
               {
-              foreach ($results as $result)
+              foreach ($results as $result) 
               {
-                  if($custID1==$custID1)
-                  {
-
         ?>
+        <div class="container">
                 <div class="request-table">
                     <table class = "table-card">
                         <tr class = "row-card">
                             <td class= "data-card">
                                 <div class="td-card">
-                                    <h3><?php echo htmlentities($result->mechName);?></h3>
-                                    <p><strong>Description : </strong> <?php echo htmlentities($result->mechRepair);?></p>
-                                    <p id="status" ><strong>Status: </strong> <?php echo htmlentities($result->Status);?></p>
-                                    <p><strong>Specific Message:</strong> <?php echo htmlentities($result->specMessage);?></p>
+                                    <h3><?php echo htmlentities($result->vOwnerName);?></h3>
+                                    <p><strong>Service Type: </strong> <?php echo htmlentities($result->serviceType);?></p>
+                                    <p><strong>Service Needed: </strong> <?php echo htmlentities($result->ServiceN);?></p>
+                                    <p><strong>Vehicle Problem:</strong> <?php echo htmlentities($result->mechRepair);?></p>
+                                    <p><strong>Note:</strong> <?php echo htmlentities($result->specMessage);?></p>
                                     <p><strong>Address:</strong> <?php echo htmlentities($result->custAddress);?></p>
+                                    <textarea placeholder="Specify here..." name="specMessage" value="specMessage" style="padding: 30px; font-size: 12px; font-family: var(--ff-primary);"></textarea>
                                     <div class="card-btn">
-                                        <button type="submit" name="submit" id="message" class="accept">Message</button>
+                                        <button type="submit" class="accept" name="sendMessage">Send Message</button>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </div>
-            <?php }}}?>
             </div>
+            <?php }}?>
             </form>
         </section>
         <?php include('Mbootom-nav.php');?>
     </div>
 
-    <script src="js/main.js">
-        var status = document.getElementById('status');
-        if(status == 'Unaccepted')
-        {
-            document.getElementById("message").disable;      
-        }
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

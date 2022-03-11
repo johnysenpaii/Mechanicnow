@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('C:\xampp\htdocs\Mechanicnow\config.php');
-$custID1=$_SESSION['custID'];
+$mechID1=$_SESSION['mechID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,58 +16,53 @@ $custID1=$_SESSION['custID'];
     <title>Mechanic Now</title>
 </head>
 <body>
-    <?php include('Uheader.php');?>
+    <?php include('Mheader.php');?>
     
     <div class="master-container">
         <section>
         <form method= "POST">
         <div class="container">
-                <h1 class="mdb">Monitor Mechanic Services</h1>
+                <h1 class="mdb">Activity log </h1>
         <?php
-              $sql="SELECT * from request WHERE custID=$custID1 and Status='Accepted' order by resID DESC";
+              $sql="SELECT * from request WHERE mechID=$mechID1 and Status='Accepted'";
               $query=$dbh->prepare($sql);
               $query->execute();
               $results=$query->fetchALL(PDO::FETCH_OBJ);
 
               if($query->rowCount()>0)
               {
-              foreach ($results as $result)
+              foreach ($results as $result) 
               {
-                  if($custID1==$custID1)
-                  {
-
-        ?>
+                if($mechID1==$mechID1)
+                {
+        ?>       
                 <div class="request-table">
                     <table class = "table-card">
                         <tr class = "row-card">
                             <td class= "data-card">
                                 <div class="td-card">
-                                    <h3><?php echo htmlentities($result->mechName);?></h3>
-                                    <p><strong>Description : </strong> <?php echo htmlentities($result->mechRepair);?></p>
-                                    <p id="status" ><strong>Status: </strong> <?php echo htmlentities($result->Status);?></p>
-                                    <p><strong>Specific Message:</strong> <?php echo htmlentities($result->specMessage);?></p>
+                                    <h3><?php echo htmlentities($result->vOwnerName);?></h3>
+                                    <p><strong>Service Type: </strong> <?php echo htmlentities($result->serviceType);?></p>
+                                    <p><strong>Service Needed: </strong> <?php echo htmlentities($result->ServiceN);?></p>
+                                    <p><strong>Vehicle Problem:</strong> <?php echo htmlentities($result->mechRepair);?></p>
+                                    <p><strong>Note:</strong> <?php echo htmlentities($result->specMessage);?></p>
                                     <p><strong>Address:</strong> <?php echo htmlentities($result->custAddress);?></p>
+                                    <textarea placeholder="Specify here..." name="specMessage" value="specMessage" style="padding: 30px; font-size: 12px; font-family: var(--ff-primary);"></textarea>
                                     <div class="card-btn">
-                                        <button type="submit" name="submit" id="message" class="accept">Message</button>
+                                        <button class="accept">Send Message</button>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     </table>
-                </div>
             <?php }}}?>
+            </div>
             </div>
             </form>
         </section>
         <?php include('Mbootom-nav.php');?>
     </div>
 
-    <script src="js/main.js">
-        var status = document.getElementById('status');
-        if(status == 'Unaccepted')
-        {
-            document.getElementById("message").disable;      
-        }
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

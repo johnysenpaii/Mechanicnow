@@ -44,7 +44,7 @@ $in_ch=mysqli_query($con,"INSERT INTO request(mechName, vOwnerName, specMessage,
 if($in_ch==1)  
    {  
     echo'<script>alert("Request Sent Successfully, Wait for Mechanic to Confirm!")</script>';  
-    echo"<script>location.replace('monitorMechanicServices.php');</script>";  
+    echo"<script>location.replace('RequestHistoryPage.php');</script>";  
    }  
 else  
    {  

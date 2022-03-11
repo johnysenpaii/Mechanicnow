@@ -49,7 +49,7 @@ $mechID1=$_SESSION['mechID'];
                                     <p><strong>Note:</strong> <?php echo htmlentities($result->specMessage);?></p>
                                     <p><strong>Address:</strong> <?php echo htmlentities($result->custAddress);?></p>
                                     <div class="card-btn">
-                                        <button type="submit" name="submit" class="accept">Accept</button>
+                                        <button type="submit" name="submit" class="accept"><a href="mechanicRequestLog.php?regeditid=<?php echo htmlentities($result->resID)?>">Accept</a></button>
                                         <button class="decline">Decline</button>
                                     </div>
                                 </div>

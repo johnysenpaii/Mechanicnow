@@ -22,9 +22,9 @@ $custID1=$_SESSION['custID'];
         <section>
         <form method= "POST">
         <div class="container">
-                <h1 class="mdb">Monitor Mechanic Services</h1>
+                <h1 class="mdb">Ongoing Request</h1>
         <?php
-              $sql="SELECT * from request WHERE custID=$custID1 and Status='Accepted' order by resID DESC";
+              $sql="SELECT * from request WHERE custID=$custID1 and Status='Unaccepted' order by resID DESC";
               $query=$dbh->prepare($sql);
               $query->execute();
               $results=$query->fetchALL(PDO::FETCH_OBJ);
@@ -47,9 +47,6 @@ $custID1=$_SESSION['custID'];
                                     <p id="status" ><strong>Status: </strong> <?php echo htmlentities($result->Status);?></p>
                                     <p><strong>Specific Message:</strong> <?php echo htmlentities($result->specMessage);?></p>
                                     <p><strong>Address:</strong> <?php echo htmlentities($result->custAddress);?></p>
-                                    <div class="card-btn">
-                                        <button type="submit" name="submit" id="message" class="accept">Message</button>
-                                    </div>
                                 </div>
                             </td>
                         </tr>

@@ -5,8 +5,8 @@
     <ul class="topnav">
         <li><a href="userDashboard.php">Home</a></li>
         <li><a href="userDashboard.php">Message</a></li>
-        <li><a href="mechanicPage.php">Mechanic</a></li>
-        <li><a href="monitorMechanicServices.php">Activity Log</a></li>
+        <li><a href="RequestHistoryPage.php">Request log</a></li>
+        <li><a href="monitorMechanicServices.php">Activity log</a></li>
     </ul>
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav class="navstyle">

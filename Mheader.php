@@ -115,7 +115,8 @@ textarea {
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav class="navstyle">
         <ul>
-            <li><a href="">Welcome <?php echo htmlentities($_SESSION["Username"]); ?></a></li>
+            <li><a href="mechanicDashboard.php">Welcome <?php echo htmlentities($_SESSION["Username"]); ?></a></li>
+            <li><a href="mechanicActivityLog.php">Activity log</a></li>
             <li><a href="">
                     <div class="dropdown">
                         <span>Notifications</span>
