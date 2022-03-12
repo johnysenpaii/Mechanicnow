@@ -1,10 +1,10 @@
-<style><?php include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\css\style.css'); ?></style>
-<script><?php include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\js\main.js');?></script>
+<style><?php include('C:\xampp\htdocs\Mechanicnow\css\style.css'); ?></style>
+<script><?php include('C:\xampp\htdocs\Mechanicnow\js\main.js');?></script>
 <header><!--Uheader-->
     <img src="img/mechanicnowlogo.svg" class="logo" alt="">
     <ul class="topnav">
         <li><a href="userDashboard.php">Home</a></li>
-        <li><a href="userDashboard.php">Message</a></li>
+        <li><a href="findMechShops.php">Find Mechanic Shops</a></li>
         <li><a href="RequestHistoryPage.php">Request log</a></li>
         <li><a href="monitorMechanicServices.php">Activity log</a></li>
     </ul>

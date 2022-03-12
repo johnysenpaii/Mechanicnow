@@ -115,7 +115,7 @@ else
                 <label>Home Service</label>
                 <input type="radio" value="Home Service" name="service">
                 <label>Emergency Service</label>
-                <input type="radio" value="Emergency" name="service">
+                <input type="radio" value="Emergency Service" name="service">
                 <p></p>
                 <br>
                 <input type="checkbox" name="mechRepair[]" value="Tire Repair">
