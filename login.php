@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+include('config.php');
 if(isset($_POST['Login']))
 {
     $Username=$_POST['Username'];
@@ -20,13 +20,15 @@ if(isset($_POST['Login']))
       $_SESSION['custID']=$results['custID'];
       $_SESSION['custFirstname']=$results['custFirstname'];
       $_SESSION['custLastname']=$results['custLastname'];
+      $_SESSION['custAddress']=$results['custAddress'];
+      $_SESSION['unique_id']=$results['unique_id'];
       $_SESSION['Username']=$results['Username'];
       $_SESSION['Password']=$results['Password'];
-      echo "<script type='text/javascript'>alert('Login Success');</script>";
+      //echo "<script type='text/javascript'>alert('Login Success');</script>";
       echo "<script type='text/javascript'>document.location='userDashboard.php';</script>";
     }
     else{
-        echo "<script type='text/javascript'>alert('Your account has been banned and Please check your email');</script>";
+        //echo "<script type='text/javascript'>alert('Your account has been banned and Please check your email');</script>";
 
     }
 
@@ -45,17 +47,21 @@ if(isset($_POST['Login']))
       $_SESSION['mechID']=$results['mechID'];
       $_SESSION['mechFirstname']=$results['mechFirstname'];
       $_SESSION['mechLastname']=$results['mechLastname'];
+      $_SESSION['mechAddress']=$results['mechAddress'];
+    
+      $_SESSION['unique_id']=$results['unique_id'];
       $_SESSION['Username']=$results['Username'];
       $_SESSION['Password']=$results['Password'];
       $_SESSION['status']=$results['status'];
-      echo "<script type='text/javascript'>alert('Login Success');</script>";
+      
+      //echo "<script type='text/javascript'>alert('Login Success');</script>";
       echo "<script type='text/javascript'>document.location='mechanicDashboard.php';</script>";
       
       
     }
     else
     {
-        echo "<script type='text/javascript'>alert('Wait for your approval or your account has been banned and Please check your email');</script>";
+        //echo "<script type='text/javascript'>alert('Wait for your approval or your account has been banned and Please check your email');</script>";
     }
 
    

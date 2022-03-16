@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< HEAD
 include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+=======
+include('C:\xampp\htdocs\MechanicNow\Mechanicnow\config.php');
+>>>>>>> 91353913ab3db1fa39fcabc88e4e7de19faa4682
 if(isset($_POST['edit']))
 {
     $id=$_POST['id'];
@@ -87,7 +91,11 @@ if(isset($_POST['edit']))
 </head>
 <body>
 <?php
+<<<<<<< HEAD
     include('Uheader.php');
+=======
+    include('C:\xampp\htdocs\MechanicNow\Mechanicnow\Uheader.php');
+>>>>>>> 91353913ab3db1fa39fcabc88e4e7de19faa4682
     ?>
     
     <div class="master-container">
@@ -183,7 +191,11 @@ if(isset($_POST['edit']))
         </section>
         
         <?php
+<<<<<<< HEAD
         include('bottom-nav.php');
+=======
+        include('C:\xampp\htdocs\MechanicNow\Mechanicnow\bottom-nav.php');
+>>>>>>> 91353913ab3db1fa39fcabc88e4e7de19faa4682
         ?>
     </div>
 

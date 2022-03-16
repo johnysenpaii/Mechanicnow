@@ -15,7 +15,7 @@ include('config.php');
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/main.min.css">
     <!-- custom css -->
-    <link rel="stylesheet" href="style2.css">
+   
 </head>
 
 <body>
@@ -198,7 +198,7 @@ include('config.php');
                     </div>
                     <div class="col-lg-2 col-md-12 col-sm-12">
                         <div class="card m-0 shadow border border-primary h-100 position-relative">
-                            <span id="hide"
+                            <span id="hide3"
                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 <?php 
 											$sql3 ="SELECT custID from customer where ban ='banned' ";
@@ -207,7 +207,7 @@ include('config.php');
 											$results3=$query3->fetchAll(PDO::FETCH_OBJ);
 											$userban=$query3->rowCount();
                                             if($userban == 0){
-                                                echo "<script type='text/javascript'>document.getElementById('hide').style.display = 'none';
+                                                echo "<script type='text/javascript'>document.getElementById('hide3').style.display = 'none';
                                                 </script>";
 
                                             }

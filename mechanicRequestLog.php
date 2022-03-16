@@ -1,6 +1,15 @@
 <?php
 session_start();
 include('config.php');
+if(isset($_POST['sendMessage']))
+{
+    $regeditid=intval($_GET['regeditid']);
+    $sql="UPDATE request set Status='Accepted' where resID=:regeditid";
+    $query=$dbh->prepare($sql); 
+    $query->bindParam(':regeditid',$regeditid,PDO::PARAM_STR); 
+    $query->execute();
+    echo"<script>location.replace('mechanicActivityLog.php');</script>";
+}
 $mechID1=$_SESSION['mechID'];
 ?>
 <!DOCTYPE html>
@@ -21,22 +30,20 @@ $mechID1=$_SESSION['mechID'];
     <div class="master-container">
         <section>
         <form method= "POST">
-        <div class="container">
-                <h1 class="mdb">Customers Request</h1>
         <?php
-              $sql="SELECT * from request WHERE mechID=$mechID1 and Status='Unaccepted'";
+              $regeditid=intval($_GET['regeditid']);
+              $sql="SELECT * from request WHERE resID=:regeditid and Status='Unaccepted'";
               $query=$dbh->prepare($sql);
+              $query->bindParam(':regeditid',$regeditid,PDO::PARAM_STR);
               $query->execute();
               $results=$query->fetchALL(PDO::FETCH_OBJ);
 
               if($query->rowCount()>0)
               {
-              foreach ($results as $result)
+              foreach ($results as $result) 
               {
-                  if($mechID1==$mechID1)
-                  {
-
         ?>
+        <div class="container">
                 <div class="request-table">
                     <table class = "table-card">
                         <tr class = "row-card">
@@ -48,17 +55,17 @@ $mechID1=$_SESSION['mechID'];
                                     <p><strong>Vehicle Problem:</strong> <?php echo htmlentities($result->mechRepair);?></p>
                                     <p><strong>Note:</strong> <?php echo htmlentities($result->specMessage);?></p>
                                     <p><strong>Address:</strong> <?php echo htmlentities($result->custAddress);?></p>
+                                    <textarea placeholder="Specify here..." name="specMessage" value="specMessage" style="padding: 30px; font-size: 12px; font-family: var(--ff-primary);"></textarea>
                                     <div class="card-btn">
-                                        <button type="submit" name="submit" class="accept"><a href="mechanicRequestLog.php?regeditid=<?php echo htmlentities($result->resID)?>">Accept</a></button>
-                                        <button class="decline">Decline</button>
+                                        <button type="submit" class="accept" name="sendMessage">Send Message</button>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </div>
-            <?php }}}?>
             </div>
+            <?php }}?>
             </form>
         </section>
         <?php include('Mbootom-nav.php');?>

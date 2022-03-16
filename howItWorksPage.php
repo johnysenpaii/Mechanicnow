@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Stick+No+Bills:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Mechanic Now</title>
+    <title>Mechanic Now | How It Works</title>
     <link rel="shortcut icon" type="x-icon" href="img/mechanicnowlogo.svg">
 </head>
 <body>
@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="howItWorksPage.php">How It Works</a></li>
                 <li><a href="aboutUsPage.php">About Us</a></li>
-                <li><a href="faqPage.php">FAQ 's </a></li>
+                <li><a href="faqPage.php">FAQ</a></li>
                 <li><a href="login.php">Sign in</a></li>
                 <li id="myBtn"><a>Sign up</a></li>
             </ul>
@@ -33,9 +33,8 @@
     <div class="banner banner-gradient">
         <div class="container container--narrow">
             <div class="bannertext">
-                <div class="banner-logo" style="margin-top: -30px"><img src="img/mn-bw(864).png" alt=""></div>
                 <div class="banner-content">
-                    <h1 style="margin-top: 20px; text-align: left;">Vehicle Repair Service <span style="color:blueviolet;">@ Your Disposal.</span></h1>
+                    <h1 style="margin-top: 20px;">How It <span style="color:blueviolet;">Works</span></h1>
                 </div>
             </div>
         </div>
@@ -83,7 +82,7 @@
                 <li>About Us</li>
             </ul>
             <div class="signupfooter">
-                <h4 class="signup-button-footer"><a href="userSignup.php">Sign Up</a></h4>
+                <h4 class="signup-button-footer"><a href="userSignup.html">Sign Up</a></h4>
             </div>
             <div class="credits">
                 <p>© 2021 Mechanic Now.</p>

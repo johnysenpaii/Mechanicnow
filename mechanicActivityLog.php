@@ -22,21 +22,20 @@ $mechID1=$_SESSION['mechID'];
         <section>
         <form method= "POST">
         <div class="container">
-                <h1 class="mdb">Customers Request</h1>
+                <h1 class="mdb">Activity log </h1>
         <?php
-              $sql="SELECT * from request WHERE mechID=$mechID1 and Status='Unaccepted'";
+              $sql="SELECT * from request WHERE mechID=$mechID1 and Status='Accepted'";
               $query=$dbh->prepare($sql);
               $query->execute();
               $results=$query->fetchALL(PDO::FETCH_OBJ);
 
               if($query->rowCount()>0)
               {
-              foreach ($results as $result)
+              foreach ($results as $result) 
               {
-                  if($mechID1==$mechID1)
-                  {
-
-        ?>
+                if($mechID1==$mechID1)
+                {
+        ?>       
                 <div class="request-table">
                     <table class = "table-card">
                         <tr class = "row-card">
@@ -48,16 +47,16 @@ $mechID1=$_SESSION['mechID'];
                                     <p><strong>Vehicle Problem:</strong> <?php echo htmlentities($result->mechRepair);?></p>
                                     <p><strong>Note:</strong> <?php echo htmlentities($result->specMessage);?></p>
                                     <p><strong>Address:</strong> <?php echo htmlentities($result->custAddress);?></p>
+                                    <textarea placeholder="Specify here..." name="specMessage" value="specMessage" style="padding: 30px; font-size: 12px; font-family: var(--ff-primary);"></textarea>
                                     <div class="card-btn">
-                                        <button type="submit" name="submit" class="accept"><a href="mechanicRequestLog.php?regeditid=<?php echo htmlentities($result->resID)?>">Accept</a></button>
-                                        <button class="decline">Decline</button>
+                                        <a class="accept" href="mechmessage.php?regeditid=<?php echo htmlentities($result->resID)?>">Send Message</a>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     </table>
-                </div>
             <?php }}}?>
+            </div>
             </div>
             </form>
         </section>

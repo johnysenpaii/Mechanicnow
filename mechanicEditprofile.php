@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\Mechanicnow\Mechanicnow\config.php');
+include('config.php');
 if(isset($_POST['edit']))
 {
     $id=$_POST['id'];
@@ -84,6 +84,7 @@ if(isset($_POST['edit']))
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Stick+No+Bills:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Mechanic Now</title>
+    
 </head>
 <body>
 <?php
@@ -163,6 +164,7 @@ if(isset($_POST['edit']))
             </div>
             <?php }}?>
             </form>
+            
         </section>
         
         <?php include('Mbootom-nav.php');?>
